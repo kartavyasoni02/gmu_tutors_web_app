@@ -4,6 +4,7 @@ import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import repository.SubjectRepository;
 import repository.TutorRepository;
@@ -19,6 +20,7 @@ import java.util.*;
  * Created by Andrew on 4/21/2017.
  */
 @Transactional
+@Service
 public class TutorService {
     private Logger log = LoggerFactory.getLogger(TutorService.class);
 
@@ -117,8 +119,22 @@ public class TutorService {
         tutor.setLastName(jpaTutor.getLastName());
         tutor.setStart(new DateTime(jpaTutor.getStartTime()));
         tutor.setEnd(new DateTime(jpaTutor.getEndTime()));
+        tutor.setRating(jpaTutor.getRating());
         //tutor.setSubjects();
 
         return tutor;
+    }
+
+    public String addTutor(Tutor tutor){
+        JPATutor jpaTutor = new JPATutor();
+        jpaTutor.setFirstName(tutor.getFirstName());
+        jpaTutor.setLastName(tutor.getLastName());
+        jpaTutor.setRating(tutor.getRating());
+        jpaTutor.setStartTime(tutor.getStart().toDate());
+        jpaTutor.setEndTime(tutor.getEnd().toDate());
+
+        tutorRepository.save(jpaTutor);
+
+        return String.format("Tutor: '%s' saved successfully.", tutor.getFullName());
     }
 }

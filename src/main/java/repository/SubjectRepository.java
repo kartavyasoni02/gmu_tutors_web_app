@@ -1,6 +1,7 @@
 package repository;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 import transfer.jpa.JPASubject;
 
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 /**
  * Created by Andrew on 4/22/2017.
  */
+@Repository
 public interface SubjectRepository extends CrudRepository <JPASubject, Long> {
     public List<JPASubject> findByTutorId(Long id);
     public List<JPASubject> findByTutorIdIn(List<Long> ids);

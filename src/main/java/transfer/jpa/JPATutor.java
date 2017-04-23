@@ -28,9 +28,6 @@ public final class JPATutor implements Serializable {
     @Column(name = "dttm_end")
     private Date endTime;
 
-    @Column(name ="id_subject")
-    private Long subjectId;
-
     public Long getTutorId() {
         return tutorId;
     }
@@ -77,13 +74,5 @@ public final class JPATutor implements Serializable {
 
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
-    }
-
-    public Long getSubjectId() {
-        return subjectId;
-    }
-
-    public void setSubjectId(Long subjectId) {
-        this.subjectId = subjectId;
     }
 }
