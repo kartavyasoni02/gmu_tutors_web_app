@@ -6,12 +6,16 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { InvalidUrlComponent } from './invalid-url/invalid-url.component';
+import { FindTutorsComponent } from './find-tutors/find-tutors.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    InvalidUrlComponent
+    InvalidUrlComponent,
+    FindTutorsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
