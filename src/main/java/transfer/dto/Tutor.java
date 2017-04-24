@@ -17,6 +17,7 @@ public class Tutor {
     private DateTime end;
     private Double rating; //average of all ratings. Range: 0-10
     private List<TutorSubject> subjects;
+    private List<Location> locations;
     private boolean available;
 
     public String getFirstName() {
@@ -67,6 +68,14 @@ public class Tutor {
         this.subjects = subjects;
     }
 
+    public List<Location> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(List<Location> locations) {
+        this.locations = locations;
+    }
+
     public boolean isAvailable() {
         return available;
     }
@@ -92,6 +101,8 @@ public class Tutor {
                 ", start=" + start +
                 ", end=" + end +
                 ", rating=" + rating +
+                ", subjects=" + subjects +
+                ", locations=" + locations +
                 ", available=" + available +
                 '}';
     }
