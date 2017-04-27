@@ -10,6 +10,7 @@ import java.util.Date;
 @Entity
 @Table(name = "tutor")
 public final class JPATutor implements Serializable {
+    @Id
     @Column(name ="id_tutor")
     private Long tutorId;
 
