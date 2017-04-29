@@ -48,50 +48,6 @@ public class TutorService {
         return tutors;
     }
 
-    public List<Tutor> getAvailableTutors(Date startTime, Date endTime){
-        List<JPATutor> tutors = tutorRepository.findByStartTimeAfterAndEndTimeBefore(startTime, endTime);
-        List<Tutor> payload = new ArrayList<>();
-        List<Long> tutorIds = new ArrayList<>();
-        tutors.forEach(tutor -> {
-            //payload.add(mapFromJPA(tutor));
-            tutorIds.add(tutor.getTutorId());
-        });
-
-        List<JPASubject> subjects = subjectRepository.findByTutorIdIn(tutorIds);
-        Map<Long, Set<JPASubject>> subjectMap = new HashMap<>();
-        for (Long id : tutorIds){
-            if (subjectMap.containsKey(id)){
-                subjectMap.get(id).add(findByTutorId(subjects, id));
-            }
-            else {
-                Set<JPASubject> set = new HashSet<>();
-                set.add(findByTutorId(subjects,id));
-                subjectMap.put(id, set);
-            }
-        }
-
-        for (Long id : tutorIds){
-            Tutor tutor = mapFromTutors(tutors, id);
-            Set<JPASubject> jpaSubjects = subjectMap.get(id);
-            List<TutorSubject> tutorSubjects = new ArrayList<>();
-            jpaSubjects.forEach(jpaSubject -> tutorSubjects.add(TutorSubject.fromDescription(jpaSubject.getSubjectDescription())));
-            tutor.setSubjects(tutorSubjects);
-            payload.add(tutor);
-        }
-
-        for (Tutor tutor : payload){
-            tutor.setAvailable(CalendarUtils.isAvailable(new DateTime(), tutor));
-        }
-
-        return payload;
-    }
-    public List<Tutor> query(SearchPayload payload){
-        // use the search payload to get the correct tutors.
-
-        //todo: actually do this
-        return new ArrayList<>();
-    }
-
     private Double getAverageRating(List<Double> ratings){
         Double result = 0.0;
         for (Double rating : ratings){

@@ -8,8 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import services.TutorService;
-import transfer.dto.DateRange;
-import transfer.dto.SearchPayload;
 import transfer.dto.Tutor;
 
 import java.util.ArrayList;
@@ -20,40 +18,22 @@ import java.util.List;
  * Created by Andrew on 4/21/2017.
  */
 @Controller
+@RequestMapping(value = "/tutors")
 public class TutorController {
     @Autowired
     TutorService tutorService;
 
     private Logger log = LoggerFactory.getLogger(TutorController.class);
 
-    @RequestMapping(value="/tutors/all", method = RequestMethod.GET)
+    @RequestMapping(value="/all", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     @ApiOperation(value="Fetches all of the tutors currently in the system.")
     public List<Tutor> fetchAllTutors(){
         return tutorService.getAllTutors();
     }
 
-    @RequestMapping(value="/tutors/available", method = RequestMethod.GET)
-    @ResponseStatus(value = HttpStatus.OK)
-    @ApiOperation(value="Fetches all tutors available between two date times")
-    public List<Tutor> fetchAvailableTutors(@RequestBody DateRange range){
-        return tutorService.getAvailableTutors(range.getBegin(), range.getEnd());
-    }
 
-    @RequestMapping(value="/tutors/query", method = RequestMethod.GET)
-    @ResponseStatus(value = HttpStatus.OK)
-    @ApiOperation(value="Fetches all available tutors based on optional SearchPayload object.",
-                    notes = "If no payload is given, then just get all")
-    public List<Tutor> queryTutors(@RequestBody(required = false)SearchPayload payload){
-        if (payload != null){
-            return tutorService.query(payload);
-        }
-        else {
-            return tutorService.getAllTutors();
-        }
-    }
-
-    @RequestMapping(value="/tutors/add", method = RequestMethod.POST)
+    @RequestMapping(value="/add", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.OK)
     @ApiOperation(value="Persists a tutor from the frotn end into the database")
     public String addTutor(@RequestBody Tutor tutor){
