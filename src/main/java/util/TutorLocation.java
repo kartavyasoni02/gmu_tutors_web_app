@@ -9,7 +9,7 @@ public enum TutorLocation {
     Engineering("Engineering Building"),
     Innovation("Innovation Hall"),
     Exploratory("Exploratory Hall"),
-    UserDefined(null);
+    UserDefined("User Defined");
 
     private final String description;
 

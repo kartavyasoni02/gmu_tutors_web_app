@@ -10,36 +10,38 @@ import java.io.Serializable;
 @Table(name="subject")
 public class JPASubject implements Serializable{
 
+    @Id
+    @GeneratedValue
     @Column(name="id_subject", nullable = false)
-    private Long subjectId;
+    private Long idSubject;
 
     @Column(name="cd_subject", nullable = false)
-    private String subjectDescription;
+    private String cdSubject;
 
     @Column(name="id_tutor")
-    private Long tutorId;
+    private Long idTutor;
 
-    public Long getSubjectId() {
-        return subjectId;
+    public Long getIdSubject() {
+        return idSubject;
     }
 
-    public void setSubjectId(Long subjectId) {
-        this.subjectId = subjectId;
+    public void setIdSubject(Long idSubject) {
+        this.idSubject = idSubject;
     }
 
-    public String getSubjectDescription() {
-        return subjectDescription;
+    public String getCdSubject() {
+        return cdSubject;
     }
 
-    public void setSubjectDescription(String subjectDescription) {
-        this.subjectDescription = subjectDescription;
+    public void setCdSubject(String cdSubject) {
+        this.cdSubject = cdSubject;
     }
 
-    public Long getTutorId() {
-        return tutorId;
+    public Long getIdTutor() {
+        return idTutor;
     }
 
-    public void setTutorId(Long tutorId) {
-        this.tutorId = tutorId;
+    public void setIdTutor(Long idTutor) {
+        this.idTutor = idTutor;
     }
 }

@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import repository.SubjectRepository;
 import repository.TutorRepository;
-import transfer.dto.SearchPayload;
 import transfer.dto.Tutor;
 import transfer.jpa.JPASubject;
 import transfer.jpa.JPATutor;
 import util.CalendarUtils;
 import util.TutorSubject;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 /**
@@ -48,7 +48,7 @@ public class TutorService {
         return tutors;
     }
 
-    private Double getAverageRating(List<Double> ratings){
+    private BigDecimal getAverageRating(List<Double> ratings){
         Double result = 0.0;
         for (Double rating : ratings){
             result += rating;
@@ -58,12 +58,12 @@ public class TutorService {
         }
         else {
             result /= ratings.size();
-            return result;
+            return new BigDecimal(result);
         }
     }
     private JPASubject findByTutorId(List<JPASubject> subjects, Long tutorId){
         for (JPASubject subject : subjects){
-            if (subject.getTutorId().equals(tutorId)){
+            if (subject.getIdTutor().equals(tutorId)){
                 return subject;
             }
         }
@@ -71,7 +71,7 @@ public class TutorService {
     }
     private Tutor mapFromTutors(List<JPATutor> tutors, Long tutorId){
         for (JPATutor tutor : tutors){
-            if (tutor.getTutorId().equals(tutorId)){
+            if (tutor.getIdTutor().equals(tutorId)){
                 return mapFromJPA(tutor);
             }
         }
@@ -80,11 +80,11 @@ public class TutorService {
 
     private Tutor mapFromJPA(JPATutor jpaTutor){
         Tutor tutor = new Tutor();
-        tutor.setFirstName(jpaTutor.getFirstName());
-        tutor.setLastName(jpaTutor.getLastName());
-        tutor.setStart(new DateTime(jpaTutor.getStartTime()));
-        tutor.setEnd(new DateTime(jpaTutor.getEndTime()));
-        tutor.setRating(jpaTutor.getRating());
+        tutor.setFirstName(jpaTutor.getTextNameFirst());
+        tutor.setLastName(jpaTutor.getTextNameLast());
+        tutor.setStart(new DateTime(jpaTutor.getDttmStart()));
+        tutor.setEnd(new DateTime(jpaTutor.getDttmEnd()));
+        tutor.setRating(jpaTutor.getAmtRating());
         //tutor.setSubjects();
 
         return tutor;
@@ -92,11 +92,11 @@ public class TutorService {
 
     public String addTutor(Tutor tutor){
         JPATutor jpaTutor = new JPATutor();
-        jpaTutor.setFirstName(tutor.getFirstName());
-        jpaTutor.setLastName(tutor.getLastName());
-        jpaTutor.setRating(tutor.getRating());
-        jpaTutor.setStartTime(tutor.getStart().toDate());
-        jpaTutor.setEndTime(tutor.getEnd().toDate());
+        jpaTutor.setTextNameFirst(tutor.getFirstName());
+        jpaTutor.setTextNameLast(tutor.getLastName());
+        jpaTutor.setAmtRating(tutor.getRating());
+        jpaTutor.setDttmStart(tutor.getStart().toDate());
+        jpaTutor.setDttmEnd(tutor.getEnd().toDate());
 
         tutorRepository.save(jpaTutor);
 

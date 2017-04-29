@@ -2,6 +2,7 @@ package transfer.jpa;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -11,69 +12,70 @@ import java.util.Date;
 @Table(name = "tutor")
 public final class JPATutor implements Serializable {
     @Id
+    @GeneratedValue
     @Column(name ="id_tutor")
-    private Long tutorId;
+    private Long idTutor;
 
-    @Column(name = "name_first", nullable = false)
-    private String firstName;
+    @Column(name = "text_name_first", nullable = false)
+    private String textNameFirst;
 
-    @Column(name = "name_last", nullable = false)
-    private String lastName;
+    @Column(name = "text_name_last", nullable = false)
+    private String textNameLast;
 
     @Column(name = "amt_rating")
-    private Double rating;
+    private BigDecimal amtRating;
 
     @Column(name = "dttm_start")
-    private Date startTime;
+    private Date dttmStart;
 
     @Column(name = "dttm_end")
-    private Date endTime;
+    private Date dttmEnd;
 
-    public Long getTutorId() {
-        return tutorId;
+    public Long getIdTutor() {
+        return idTutor;
     }
 
-    public void setTutorId(Long tutorId) {
-        this.tutorId = tutorId;
+    public void setIdTutor(Long idTutor) {
+        this.idTutor = idTutor;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getTextNameFirst() {
+        return textNameFirst;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setTextNameFirst(String textNameFirst) {
+        this.textNameFirst = textNameFirst;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getTextNameLast() {
+        return textNameLast;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setTextNameLast(String textNameLast) {
+        this.textNameLast = textNameLast;
     }
 
-    public Double getRating() {
-        return rating;
+    public BigDecimal getAmtRating() {
+        return amtRating;
     }
 
-    public void setRating(Double rating) {
-        this.rating = rating;
+    public void setAmtRating(BigDecimal amtRating) {
+        this.amtRating = amtRating;
     }
 
-    public Date getStartTime() {
-        return startTime;
+    public Date getDttmStart() {
+        return dttmStart;
     }
 
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
+    public void setDttmStart(Date dttmStart) {
+        this.dttmStart = dttmStart;
     }
 
-    public Date getEndTime() {
-        return endTime;
+    public Date getDttmEnd() {
+        return dttmEnd;
     }
 
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
+    public void setDttmEnd(Date dttmEnd) {
+        this.dttmEnd = dttmEnd;
     }
 }

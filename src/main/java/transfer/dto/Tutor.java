@@ -3,6 +3,7 @@ package transfer.dto;
 import org.joda.time.DateTime;
 import util.TutorSubject;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ public class Tutor {
     private String lastName;
     private DateTime start;
     private DateTime end;
-    private Double rating; //average of all ratings. Range: 0-10
+    private BigDecimal rating; //average of all ratings. Range: 0-10
     private List<TutorSubject> subjects;
     private List<Location> locations;
     private boolean available;
@@ -52,11 +53,11 @@ public class Tutor {
         this.end = end;
     }
 
-    public Double getRating() {
+    public BigDecimal getRating() {
         return rating;
     }
 
-    public void setRating(Double rating) {
+    public void setRating(BigDecimal rating) {
         this.rating = rating;
     }
 

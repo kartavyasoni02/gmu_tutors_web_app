@@ -12,5 +12,5 @@ import java.util.List;
  */
 @Repository
 public interface TutorRepository extends CrudRepository<JPATutor, Long> {
-    public List<JPATutor> findByStartTimeAfterAndEndTimeBefore(Date start, Date end);
+    public List<JPATutor> findByDttmStartAfterAndDttmEndBefore(Date start, Date end);
 }
