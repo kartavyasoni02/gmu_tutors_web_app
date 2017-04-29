@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import repository.SubjectRepository;
 import repository.TutorRepository;
+import transfer.dto.SearchPayload;
 import transfer.dto.Tutor;
 import transfer.jpa.JPASubject;
 import transfer.jpa.JPATutor;
@@ -46,6 +47,7 @@ public class TutorService {
 
         return tutors;
     }
+
     public List<Tutor> getAvailableTutors(Date startTime, Date endTime){
         List<JPATutor> tutors = tutorRepository.findByStartTimeAfterAndEndTimeBefore(startTime, endTime);
         List<Tutor> payload = new ArrayList<>();
@@ -83,6 +85,13 @@ public class TutorService {
 
         return payload;
     }
+    public List<Tutor> query(SearchPayload payload){
+        // use the search payload to get the correct tutors.
+
+        //todo: actually do this
+        return new ArrayList<>();
+    }
+
     private Double getAverageRating(List<Double> ratings){
         Double result = 0.0;
         for (Double rating : ratings){

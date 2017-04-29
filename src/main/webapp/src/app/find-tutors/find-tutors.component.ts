@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Tutor} from "../shared/tutor.obj";
+import {TutorService} from "../shared/tutor.service";
+import {SearchPayload} from "../shared/search.payload.obj";
+import {DateRange} from "../shared/date.range.obj";
+import {Locations} from "../shared/location.enum";
 
 @Component({
   selector: 'app-find-tutors',
@@ -6,9 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FindTutorsComponent implements OnInit {
 
-  constructor() { }
+  private tutors: Tutor[]; // payload extracted from service get method
+
+  constructor(private tutorService: TutorService) {
+  }
 
   ngOnInit() {
+
+  }
+
+  /**
+   *
+   */
+  private loadData(subjects?, dateRange?: DateRange, locations?: Locations[]) {
+
   }
 
 }

@@ -2,6 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
+import {Ng2BootstrapModule} from 'ng-bootstrap/ng2-bootstrap';
 
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
@@ -9,6 +10,7 @@ import {InvalidUrlComponent} from './invalid-url/invalid-url.component';
 import {FindTutorsComponent} from './find-tutors/find-tutors.component';
 import {AboutComponent} from './about/about.component';
 import {RouterModule, Routes} from "@angular/router";
+import {TutorService} from "./shared/tutor.service";
 
 const appRoutes: Routes = [
   {
@@ -47,11 +49,12 @@ const appRoutes: Routes = [
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
+    Ng2BootstrapModule.forRoot(),
     BrowserModule,
     FormsModule,
     HttpModule,
   ],
-  providers: [],
+  providers: [TutorService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

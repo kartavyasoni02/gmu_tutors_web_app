@@ -11,10 +11,13 @@ public enum TutorSubject {
     BIO("Biology"),
     CHEM("Chemistry"),
     PHYS("Physics"),
+    ASTRO("Astronomy"),
+    ENVIR("Environment Science"),
     MATH("Math"),
     STAT("Statistics"),
     IT("IT"),
-    COMPSCI("Computer Science");
+    COMPSCI("Computer Science"),
+    MUSIC("Music");
 
     private final String description;
 

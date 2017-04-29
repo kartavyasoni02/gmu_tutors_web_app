@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import services.TutorService;
 import transfer.dto.DateRange;
+import transfer.dto.SearchPayload;
 import transfer.dto.Tutor;
 
 import java.util.ArrayList;
@@ -37,6 +38,19 @@ public class TutorController {
     @ApiOperation(value="Fetches all tutors available between two date times")
     public List<Tutor> fetchAvailableTutors(@RequestBody DateRange range){
         return tutorService.getAvailableTutors(range.getBegin(), range.getEnd());
+    }
+
+    @RequestMapping(value="/tutors/query", method = RequestMethod.GET)
+    @ResponseStatus(value = HttpStatus.OK)
+    @ApiOperation(value="Fetches all available tutors based on optional SearchPayload object.",
+                    notes = "If no payload is given, then just get all")
+    public List<Tutor> queryTutors(@RequestBody(required = false)SearchPayload payload){
+        if (payload != null){
+            return tutorService.query(payload);
+        }
+        else {
+            return tutorService.getAllTutors();
+        }
     }
 
     @RequestMapping(value="/tutors/add", method = RequestMethod.POST)
