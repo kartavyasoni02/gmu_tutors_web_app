@@ -11,7 +11,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <hibernate.version>5.1.0.Final</hibernate.version>
-        <start-class>GMUTutorsApplication</start-class>
+        <start-class>com.gmu.tutors.GMUTutorsApplication</start-class>
     </properties>
 
     <parent>
@@ -47,9 +47,9 @@
             <version>2.9.9</version>
         </dependency>
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>5.2.10.Final</version>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>3.2.2</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.data</groupId>
@@ -169,7 +169,7 @@
                         <phase>generate-resources</phase>
                         <configuration>
                             <installDirectory>target</installDirectory>
-                            <arguments>install </arguments>
+                            <arguments>install</arguments>
                         </configuration>
                     </execution>
                 </executions>

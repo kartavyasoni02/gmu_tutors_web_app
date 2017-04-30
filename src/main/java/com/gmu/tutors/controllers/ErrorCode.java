@@ -1,4 +1,4 @@
-package controllers;
+package com.gmu.tutors.controllers;
 
 /**
  * Created by Andrew on 4/22/2017.

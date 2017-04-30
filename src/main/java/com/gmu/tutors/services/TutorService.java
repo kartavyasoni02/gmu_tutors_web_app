@@ -1,19 +1,17 @@
-package services;
+package com.gmu.tutors.services;
 
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import repository.TutorRepository;
-import transfer.dto.Tutor;
-import transfer.collections.MongoTutor;
-import util.CalendarUtils;
-import transfer.enums.TutorSubject;
+import com.gmu.tutors.repository.TutorRepository;
+import com.gmu.tutors.transfer.dto.Tutor;
+import com.gmu.tutors.transfer.model.MongoTutor;
+import com.gmu.tutors.util.CalendarUtils;
+import com.gmu.tutors.transfer.enums.TutorSubject;
 
-import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -25,11 +23,8 @@ import java.util.*;
 public class TutorService {
     private Logger log = LoggerFactory.getLogger(TutorService.class);
 
-    @Autowired(required = false)
-    TutorRepository tutorRepository;
-
     @Autowired
-    private MongoTemplate mongoTemplate;
+    TutorRepository tutorRepository;
 
     public List<Tutor> getAllTutors(){
         // dummy
@@ -53,8 +48,22 @@ public class TutorService {
         MongoTutor mongoTutor = new MongoTutor();
         mongoTutor.setFirstName(tutor.getFirstName());
         mongoTutor.setLastName(tutor.getLastName());
-        tutorRepository.save(mongoTutor);
+        tutorRepository.insert(mongoTutor); //assumes that this tutor doesn't exist yet. Can yield duplicates
 
         return String.format("Successfully saved %s", tutor.getFullName());
+    }
+
+    public String updateRating(String tutorId, BigDecimal rating){
+        MongoTutor tutor = tutorRepository.findOne(tutorId);
+        // do math to get the new rating.
+        Float newRating = tutor.getRating().floatValue();
+        Integer count = tutor.getNumOfRatings();
+        newRating *= count; // derive old sum.
+        newRating += rating.floatValue(); // calculate new sum.
+        tutor.setNumOfRatings(++count);
+        tutor.setRating(new BigDecimal(newRating / count));
+        tutorRepository.save(tutor);
+
+        return String.format("Tutor:%s has an overall rating of %f", tutorId, newRating);
     }
 }

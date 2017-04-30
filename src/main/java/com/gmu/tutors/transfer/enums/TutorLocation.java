@@ -1,4 +1,4 @@
-package transfer.enums;
+package com.gmu.tutors.transfer.enums;
 
 /**
  * Created by Andrew on 4/23/2017.

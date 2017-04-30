@@ -1,5 +1,7 @@
+package com.gmu.tutors;
+
 import org.junit.Test;
-import transfer.dto.Tutor;
+import com.gmu.tutors.transfer.dto.Tutor;
 
 import static org.junit.Assert.assertTrue;
 

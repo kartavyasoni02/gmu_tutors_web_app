@@ -1,8 +1,10 @@
-package transfer.collections;
+package com.gmu.tutors.transfer.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.math.BigDecimal;
 
 /**
  * Created by Andrew on 4/29/2017.
@@ -17,6 +19,8 @@ public class MongoTutor {
     private String id;
     private String firstName;
     private String lastName;
+    private BigDecimal rating;
+    private Integer numOfRatings; // we aren't keeping track of all of the ratings, so we need to keep track of how many
 
     public String getId() {
         return id;
@@ -40,5 +44,21 @@ public class MongoTutor {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public BigDecimal getRating() {
+        return rating;
+    }
+
+    public void setRating(BigDecimal rating) {
+        this.rating = rating;
+    }
+
+    public Integer getNumOfRatings() {
+        return numOfRatings;
+    }
+
+    public void setNumOfRatings(Integer numOfRatings) {
+        this.numOfRatings = numOfRatings;
     }
 }

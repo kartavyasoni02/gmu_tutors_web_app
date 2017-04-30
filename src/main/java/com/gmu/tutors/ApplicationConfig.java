@@ -1,11 +1,17 @@
+package com.gmu.tutors;
+
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
+import org.springframework.data.mongodb.config.EnableMongoAuditing;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @Configuration
-@EnableMongoRepositories(basePackages = {"repository","controllers", "services", "transfer", "util"})
+@Profile(value = "default")
+@EnableMongoAuditing
+@EnableMongoRepositories(basePackages = {"com.gmu.tutors"}, considerNestedRepositories = true)
 class ApplicationConfig extends AbstractMongoConfiguration {
 
     @Override

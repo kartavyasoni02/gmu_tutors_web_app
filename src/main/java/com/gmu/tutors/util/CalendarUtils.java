@@ -1,7 +1,7 @@
-package util;
+package com.gmu.tutors.util;
 
 import org.joda.time.DateTime;
-import transfer.dto.Tutor;
+import com.gmu.tutors.transfer.dto.Tutor;
 
 /**
  * Created by Andrew on 4/21/2017.

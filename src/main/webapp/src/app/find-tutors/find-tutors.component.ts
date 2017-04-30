@@ -35,6 +35,21 @@ export class FindTutorsComponent implements OnInit {
     console.log(this.cols);
   }
 
+  // takes dummy tutors and inserts them.
+  private loadTutors() {
+    this.tutors.forEach(tutor => {
+      this.tutorService.addTutor(tutor).subscribe((data: string) => {
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        },
+        () => {
+          console.log("success");
+        })
+    });
+  }
+
   private loadDummyData() {
     this.tutors = [];
     this.tutors.push(
@@ -55,9 +70,11 @@ export class FindTutorsComponent implements OnInit {
       },
       error => {
         // an error occurred
+        console.log(error);
       },
       () => {
         //stuff
+        console.log("success");
       });
   }
 

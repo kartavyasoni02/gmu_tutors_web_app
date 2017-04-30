@@ -1,4 +1,6 @@
 <div class="container-fluid" style="padding-left: 50px; padding-right: 50px">
+  <!-- note: button used to check if db is set up properly to handle requests -->
+  <button style="text-align: center" pButton (click)="loadTutors()" label="Test Dummy Data"></button>
   <div style="align-content: center; padding: 20px 10px;">
     <p-dataTable [value]="tutors" [style]="{'width': '100%'}">
       <p-header style="font-size: 20px; text-align: center;">

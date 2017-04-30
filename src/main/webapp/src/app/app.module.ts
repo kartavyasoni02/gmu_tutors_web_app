@@ -12,6 +12,7 @@ import {AboutComponent} from './about/about.component';
 import {RouterModule, Routes} from "@angular/router";
 import {TutorService} from "./shared/tutor.service";
 import {DataTableModule} from "primeng/components/datatable/datatable";
+import {ButtonModule} from "primeng/components/button/button";
 import {EnvConfig} from "./shared/env.config";
 import {SharedModule} from "primeng/components/common/shared";
 
@@ -56,7 +57,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    DataTableModule, SharedModule
+    DataTableModule, ButtonModule, SharedModule
   ],
   providers: [EnvConfig, TutorService],
   bootstrap: [AppComponent]

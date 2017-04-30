@@ -1,6 +1,6 @@
-package transfer.dto;
+package com.gmu.tutors.transfer.dto;
 
-import transfer.enums.TutorLocation;
+import com.gmu.tutors.transfer.enums.TutorLocation;
 
 /**
  * Created by Andrew on 4/23/2017.
