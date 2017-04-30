@@ -1,16 +1,20 @@
 package repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.stereotype.Repository;
-import transfer.jpa.JPATutor;
+import transfer.collections.MongoTutor;
 
-import java.util.Date;
 import java.util.List;
 
 /**
- * Created by Andrew on 4/22/2017.
+ * Created by Andrew on 4/29/2017.
+ *
+ * url: https://spring.io/guides/gs/accessing-mongodb-data-rest/
  */
 @Repository
-public interface TutorRepository extends CrudRepository<JPATutor, Long> {
-    public List<JPATutor> findByDttmStartAfterAndDttmEndBefore(Date start, Date end);
+@RepositoryRestResource(collectionResourceRel = "tutors",path = "tutors")
+public interface TutorRepository extends MongoRepository<MongoTutor, String>{
+    List<MongoTutor> findByLastName(@Param("name") String name);
 }

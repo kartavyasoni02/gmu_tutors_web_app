@@ -1,6 +1,6 @@
 package transfer.dto;
 
-import util.TutorLocation;
+import transfer.enums.TutorLocation;
 
 /**
  * Created by Andrew on 4/23/2017.

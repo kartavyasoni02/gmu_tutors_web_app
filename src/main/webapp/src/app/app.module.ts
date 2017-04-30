@@ -11,6 +11,9 @@ import {FindTutorsComponent} from './find-tutors/find-tutors.component';
 import {AboutComponent} from './about/about.component';
 import {RouterModule, Routes} from "@angular/router";
 import {TutorService} from "./shared/tutor.service";
+import {DataTableModule} from "primeng/components/datatable/datatable";
+import {EnvConfig} from "./shared/env.config";
+import {SharedModule} from "primeng/components/common/shared";
 
 const appRoutes: Routes = [
   {
@@ -53,8 +56,9 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
+    DataTableModule, SharedModule
   ],
-  providers: [TutorService],
+  providers: [EnvConfig, TutorService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

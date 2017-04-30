@@ -3,6 +3,9 @@ import {Http, RequestOptions, Response, Headers} from "@angular/http";
 import {EnvConfig} from "./env.config";
 import {Tutor} from "./tutor.obj";
 import {Observable} from "rxjs/Observable";
+import {Injectable} from "@angular/core";
+
+@Injectable()
 export class TutorService {
 
   constructor(private http: Http, private envConfig: EnvConfig){}
@@ -17,6 +20,6 @@ export class TutorService {
   }
 
   public addTutor(tutor: Tutor){
-    this.http.put(this.envConfig.getEnvVariable('endPoint') + "/add", tutor);
+    this.http.put(this.envConfig.getEnvVariable('endPoint') + "/insert", tutor);
   }
 }

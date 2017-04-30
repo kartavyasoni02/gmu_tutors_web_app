@@ -39,7 +39,7 @@ public class SwaggerConfig {
                 "Web App project to connect students to tutors",
                 "0.0.1",
                 "",
-                new Contact("Andrew Huynh","github.com/SaxyPandaBear","ahuynh11@gmu.edu"),
+                new Contact("Andrew Huynh","http://www.github.com/SaxyPandaBear","ahuynh11@gmu.edu"),
                 "MIT",
                 ""
         );

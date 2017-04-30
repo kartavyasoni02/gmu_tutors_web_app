@@ -1,4 +1,4 @@
-package util;
+package transfer.enums;
 
 /**
  * Created by Andrew on 4/21/2017.

@@ -33,10 +33,10 @@ public class TutorController {
     }
 
 
-    @RequestMapping(value="/add", method = RequestMethod.PUT)
+    @RequestMapping(value="/insert", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.OK)
     @ApiOperation(value="Persists a tutor from the frotn end into the database")
     public String addTutor(@RequestBody Tutor tutor){
-        return tutorService.addTutor(tutor);
+        return tutorService.insertTutor(tutor);
     }
 }

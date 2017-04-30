@@ -1,7 +1,7 @@
 package transfer.dto;
 
 import org.joda.time.DateTime;
-import util.TutorSubject;
+import transfer.enums.TutorSubject;
 
 import java.math.BigDecimal;
 import java.util.List;

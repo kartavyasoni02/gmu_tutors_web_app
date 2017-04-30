@@ -1,7 +1,20 @@
-<div class="container-fluid">
-  <p-dataTable>
-
-  </p-dataTable>
+<div class="container-fluid" style="padding-left: 50px; padding-right: 50px">
+  <div style="align-content: center; padding: 20px 10px;">
+    <p-dataTable [value]="tutors" [style]="{'width': '100%'}">
+      <p-header style="font-size: 20px; text-align: center;">
+        <strong><u>Available Tutors</u></strong>
+      </p-header>
+      <p-footer style="text-align: center;">
+        <span class="text-muted"><u>Current Date: {{currentDate | date:'MM/dd/yy'}}</u></span>
+      </p-footer>
+      <p-column *ngFor="let col of cols" [filter]="true" [sortable]="true" [field]="col.field" [header]="col.header"
+                [filterMatchMode]="col.filterMatchMode">
+        <ng-template pTemplate="body" let-row="rowData">
+          {{row[col.field]}}
+        </ng-template>
+      </p-column>
+    </p-dataTable>
+  </div>
 </div>
 
 <footer class="footer">
