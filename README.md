@@ -31,7 +31,9 @@
     * If starting from root directory, ```cd src/main/webapp``` should suffice.
 4. Start up the web-app: 
     * ```ng serve``` 
-    * navigate to ```localhost:4200``` to view the web-app
+    * Navigate to ```localhost:4200``` to view the web-app.
+    * Navigate to ```localhost:8150/swagger-ui.html``` to view the `Swagger` generated 
+      `REST API` documentation.
     
 **_And then you're done!_**
 
