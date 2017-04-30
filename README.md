@@ -11,20 +11,18 @@
   
 >**What's the technology stack?**
 
-Maven Project:
 1. NoSQL Database:
     * [MongoDB](https://www.mongodb.com/)
 2. Java Backend:
     * Uses [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
     * [Spring Framework](https://spring.io/)
+    * Maven is used to build the project.
 3. Angular 2 Frontend:
     * Built with [Angular CLI](https://cli.angular.io/)
     * [Bootstrap 4 Angular 2 directives](https://ng-bootstrap.github.io/#/home)
     * [PrimeNG](https://www.primefaces.org/primeng/)
 
 >**How do I run the project?**
-
-PS: Uses maven to build the project.
 
 1. Start MongoDB service 
 2. Start up the Spring app: 
@@ -37,4 +35,4 @@ PS: Uses maven to build the project.
     
 **_And then you're done!_**
 
-# Thanks for reading :smile: (testing to see if this works on github.)
+# Thanks for reading :smile:
