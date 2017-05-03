@@ -26,4 +26,8 @@ public enum TutorLocation {
         // else it is a user defined location.
         return UserDefined;
     }
+
+    public String description() {
+        return description;
+    }
 }

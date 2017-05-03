@@ -29,6 +29,7 @@ public class TutorController {
     @ResponseStatus(value = HttpStatus.OK)
     @ApiOperation(value="Fetches all of the tutors currently in the system.")
     public List<Tutor> fetchAllTutors(){
+        log.info("GET request: /api/tutors/all");
         return tutorService.getAllTutors();
     }
 
@@ -36,6 +37,7 @@ public class TutorController {
     @ResponseStatus(value = HttpStatus.OK)
     @ApiOperation(value="Persists a new tutor from the frotn end into the database")
     public String addTutor(@RequestBody Tutor tutor){
+        log.info("PUT request: /api/tutors/insert with value: {}", tutor);
         return tutorService.insertTutor(tutor);
     }
 
@@ -43,6 +45,7 @@ public class TutorController {
     @ResponseStatus(value= HttpStatus.OK)
     @ApiOperation(value = "Adds a rating to an existing Tutor")
     public String updateRating(@RequestBody BigDecimal rating, @RequestParam String id){
+        log.info("PATCH request: /api/tutors/rating/{id} with value: {}", id);
         return tutorService.updateRating(id, rating);
     }
 }

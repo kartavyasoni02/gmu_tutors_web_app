@@ -9,39 +9,13 @@ import {HomeComponent} from './home/home.component';
 import {InvalidUrlComponent} from './invalid-url/invalid-url.component';
 import {FindTutorsComponent} from './find-tutors/find-tutors.component';
 import {AboutComponent} from './about/about.component';
-import {RouterModule, Routes} from "@angular/router";
 import {TutorService} from "./shared/tutor.service";
 import {DataTableModule} from "primeng/components/datatable/datatable";
 import {ButtonModule} from "primeng/components/button/button";
 import {EnvConfig} from "./shared/env.config";
 import {SharedModule} from "primeng/components/common/shared";
-
-const appRoutes: Routes = [
-  {
-    path: '',
-    component: HomeComponent,
-  },
-  {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
-    path: 'about',
-    component: AboutComponent
-  },
-  {
-    path: 'find-tutors',
-    component: FindTutorsComponent
-  },
-  {
-    path: '404',
-    component: InvalidUrlComponent
-  },
-  {
-    path: '**',
-    redirectTo: '404'
-  }
-];
+import {DialogModule} from "primeng/primeng";
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -52,12 +26,12 @@ const appRoutes: Routes = [
     AboutComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
-    Ng2BootstrapModule.forRoot(),
     BrowserModule,
     FormsModule,
     HttpModule,
-    DataTableModule, ButtonModule, SharedModule
+    AppRoutingModule,
+    Ng2BootstrapModule.forRoot(),
+    DataTableModule, ButtonModule, DialogModule, SharedModule
   ],
   providers: [EnvConfig, TutorService],
   bootstrap: [AppComponent]

@@ -25,6 +25,11 @@ public class ServiceTest {
         MongoTutor mongoTutor = new MongoTutor();
         mongoTutor.setFirstName("Andrew");
         mongoTutor.setLastName("Huynh");
-        tutorRepository.save(mongoTutor);
+        log.info("saved {}", tutorRepository.save(mongoTutor));
+    }
+
+    @Test
+    public void foo(){
+        tutorRepository.findByLastName("Huynh");
     }
 }

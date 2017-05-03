@@ -1,15 +1,20 @@
 <div class="container-fluid" style="padding-left: 50px; padding-right: 50px">
   <!-- note: button used to check if db is set up properly to handle requests -->
-  <button style="text-align: center" pButton (click)="loadTutors()" label="Test Dummy Data"></button>
+  <div>
+    <button style="text-align: center" pButton (click)="loadTutors()" label="Test Dummy Data"></button>
+  </div>
   <div style="align-content: center; padding: 20px 10px;">
     <p-dataTable [value]="tutors" [style]="{'width': '100%'}">
       <p-header style="font-size: 20px; text-align: center;">
         <strong><u>Available Tutors</u></strong>
       </p-header>
       <p-footer style="text-align: center;">
-        <span class="text-muted"><u>Current Date: {{currentDate | date:'MM/dd/yy'}}</u></span>
+        <span class="text-muted">
+          <u>Current Date: {{currentDate | date:'MM/dd/yy'}}</u> | <button pButton (click)="showForm()" label="Add Tutor"></button>
+        </span>
       </p-footer>
-      <p-column *ngFor="let col of cols" [filter]="true" [sortable]="true" [field]="col.field" [header]="col.header"
+      <p-column *ngFor="let col of cols" [filter]="true" [sortable]="true" [field]="col.field"
+                [header]="col.header"
                 [filterMatchMode]="col.filterMatchMode">
         <ng-template pTemplate="body" let-row="rowData">
           {{row[col.field]}}
@@ -18,6 +23,22 @@
     </p-dataTable>
   </div>
 </div>
+
+<p-dialog header="Add a Tutor" [(visible)]="showFormPopup" modal="modal" width="300" responsive="true">
+  <form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" [(ngModel)]="inputEmail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else</small>
+    </div>
+  </form>
+  <p-footer>
+    <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+      <button type="button" pButton icon="fa-close" (click)="cancelForm()" label="No"></button>
+      <button type="button" pButton icon="fa-check" (click)="confirmForm()" label="Yes"></button>
+    </div>
+  </p-footer>
+</p-dialog>
 
 <footer class="footer">
   <div class="container"><!-- todo: add actual link -->

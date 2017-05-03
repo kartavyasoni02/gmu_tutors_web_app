@@ -11,13 +11,13 @@
   
 >**What's the technology stack?**
 
-1. NoSQL Database:
+* NoSQL Database:
     * [MongoDB](https://www.mongodb.com/)
-2. Java Backend:
+* Java Backend:
     * Uses [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
     * [Spring Framework](https://spring.io/)
     * Maven is used to build the project.
-3. Angular 2 Frontend:
+* Angular 2 Frontend:
     * Built with [Angular CLI](https://cli.angular.io/)
     * [Bootstrap 4 Angular 2 directives](https://ng-bootstrap.github.io/#/home)
     * [PrimeNG](https://www.primefaces.org/primeng/)

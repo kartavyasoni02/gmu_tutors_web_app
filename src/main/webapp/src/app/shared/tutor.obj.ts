@@ -6,6 +6,8 @@
 export interface Tutor {
   firstName?;
   lastName?;
+  email?;
+  phoneNumber?;
   start?; // start time of availability
   end?; // end date time of availability
   rating?;

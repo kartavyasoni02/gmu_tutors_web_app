@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TutorService} from "../shared/tutor.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-about',
@@ -7,7 +8,7 @@ import {TutorService} from "../shared/tutor.service";
 })
 export class AboutComponent implements OnInit {
 
-  constructor(private tutorService: TutorService) { }
+  constructor(private router: Router, private tutorService: TutorService) { }
 
   ngOnInit() {
   }
