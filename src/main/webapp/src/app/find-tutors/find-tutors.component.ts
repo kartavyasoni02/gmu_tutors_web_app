@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {Tutor} from "../shared/tutor.obj";
-import {TutorService} from "../shared/tutor.service";
-import {SearchPayload} from "../shared/search.payload.obj";
-import {DateRange} from "../shared/date.range.obj";
-import {Locations} from "../shared/location.enum";
+import {Tutor} from "../shared/objs/tutor.obj";
+import {TutorService} from "../shared/services/tutor.service";
+import {DateRange} from "../shared/objs/date.range.obj";
+import {Locations} from "../shared/objs/location.enum";
 import {Router} from "@angular/router";
-import {Subject} from "../shared/subject.enum";
+import {TutorSubject} from "../shared/objs/subject.enum";
+import {MessagingService} from "../shared/services/messaging.service";
+import {LoadingService} from "../shared/services/loading.service";
 
 @Component({
   selector: 'app-find-tutors',
@@ -25,7 +26,7 @@ export class FindTutorsComponent implements OnInit {
   private inputPhoneNumber: string; // todo: masked input
   private inputStartDate: Date;
   private inputEndDate: Date;
-  private inputSubjects: Subject[];
+  private inputSubjects: TutorSubject[];
   private inputLocations: Locations[];
 
   // options for select options in the form.
@@ -33,7 +34,8 @@ export class FindTutorsComponent implements OnInit {
   private availableSubjects;
   private availableLocations;
 
-  constructor(private router: Router, private tutorService: TutorService) {
+  constructor(private router: Router, private tutorService: TutorService, private loadingService: LoadingService,
+              private messagingService: MessagingService) {
     console.log("constructor for find-tutors")
   }
 
@@ -87,14 +89,17 @@ export class FindTutorsComponent implements OnInit {
     this.tutorService.getAllTutors().subscribe((data: Tutor[]) => {
         this.tutors = data;
         console.log(data);
+        this.messagingService.addSuccessMessage("Successfully fetched tutor data");
       },
       error => {
         // an error occurred
         console.log(error);
+        this.messagingService.addErrorMessage("An error occurred in loading data");
+        this.messagingService.addErrorMessage(error._body);
       },
       () => {
         //stuff
-        console.log("success");
+        console.log("after starting subscription");
       });
   }
 
@@ -114,6 +119,7 @@ export class FindTutorsComponent implements OnInit {
 
   private cancelForm(){
     this.showFormPopup = false;
+    this.messagingService.addInfoMessage("Cancelled form input");
   }
 
   private confirmForm(){
@@ -129,6 +135,19 @@ export class FindTutorsComponent implements OnInit {
     }
 
     // persist this tutor into the database through the PUT request
-    this.tutorService.addTutor(tutor);
+    this.tutorService.addTutor(tutor).subscribe((data: string) => {
+        this.tutors.push(tutor);
+        console.log(data);
+        this.messagingService.addSuccessMessage("Successfully added");
+      },
+      error => {
+        console.log(error);
+        this.messagingService.addErrorMessage("An error occurred while trying to add");
+        this.messagingService.addErrorMessage(error._body);
+      },
+      () => {
+        console.log("after starting subscription");
+      }
+    );
   }
 }

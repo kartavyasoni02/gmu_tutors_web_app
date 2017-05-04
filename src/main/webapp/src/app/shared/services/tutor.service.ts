@@ -1,7 +1,7 @@
 // service class that interacts with backend endpoints.
 import {Http, RequestOptions, Response, Headers} from "@angular/http";
 import {EnvConfig} from "./env.config";
-import {Tutor} from "./tutor.obj";
+import {Tutor} from "../objs/tutor.obj";
 import {Observable} from "rxjs/Observable";
 import {Injectable} from "@angular/core";
 

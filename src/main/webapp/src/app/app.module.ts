@@ -4,18 +4,20 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {Ng2BootstrapModule} from 'ng-bootstrap/ng2-bootstrap';
 
+import {ButtonModule, DataTableModule, DialogModule, GrowlModule, SharedModule} from "primeng/primeng";
+
 import {AppComponent} from './app.component';
+import {AppRoutingModule} from "./app-routing.module";
 import {HomeComponent} from './home/home.component';
 import {InvalidUrlComponent} from './invalid-url/invalid-url.component';
 import {FindTutorsComponent} from './find-tutors/find-tutors.component';
 import {AboutComponent} from './about/about.component';
-import {TutorService} from "./shared/tutor.service";
-import {DataTableModule} from "primeng/components/datatable/datatable";
-import {ButtonModule} from "primeng/components/button/button";
-import {EnvConfig} from "./shared/env.config";
-import {SharedModule} from "primeng/components/common/shared";
-import {DialogModule} from "primeng/primeng";
-import {AppRoutingModule} from "./app-routing.module";
+import {TutorService} from "./shared/services/tutor.service";
+import {EnvConfig} from "./shared/services/env.config";
+import { MessagingComponent } from './messaging/messaging.component';
+import {MessagingService} from "./shared/services/messaging.service";
+import { LoadingComponent } from './loading/loading.component';
+import {LoadingService} from "./shared/services/loading.service";
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import {AppRoutingModule} from "./app-routing.module";
     HomeComponent,
     InvalidUrlComponent,
     FindTutorsComponent,
-    AboutComponent
+    AboutComponent,
+    MessagingComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -31,9 +35,9 @@ import {AppRoutingModule} from "./app-routing.module";
     HttpModule,
     AppRoutingModule,
     Ng2BootstrapModule.forRoot(),
-    DataTableModule, ButtonModule, DialogModule, SharedModule
+    DataTableModule, ButtonModule, DialogModule, GrowlModule, SharedModule
   ],
-  providers: [EnvConfig, TutorService],
+  providers: [EnvConfig, TutorService, MessagingService, LoadingService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

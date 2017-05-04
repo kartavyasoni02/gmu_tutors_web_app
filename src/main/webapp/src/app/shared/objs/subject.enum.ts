@@ -3,7 +3,7 @@
  *
  * Note: This should match the backend enum TutorSubject
  */
-export enum Subject {
+export enum TutorSubject {
   ENGH = <any>"English",
   HIST = <any>"History",
   PSYCH = <any>"Psychology",
