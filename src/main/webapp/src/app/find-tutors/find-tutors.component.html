@@ -28,7 +28,7 @@
   <form>
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
-      <input type="email" [(ngModel)]="inputEmail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <input type="email" [(ngModel)]="inputEmail" [ngModelOptions]="{'standalone': 'true'}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else</small>
     </div>
   </form>
@@ -41,8 +41,8 @@
 </p-dialog>
 
 <footer class="footer">
-  <div class="container"><!-- todo: add actual link -->
-    <span class="text-muted">Find us on GitHub <a href="https://www.github.com"><img
+  <div class="container">
+    <span class="text-muted">Find us on GitHub <a href="https://github.com/SaxyPandaBear/gmu_tutors_web_app"><img
       src="../../assets/GitHub-Mark-32px.png"></a></span>
   </div>
 </footer>

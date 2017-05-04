@@ -145,3 +145,10 @@ body {
     text-align: center;
     background-color: #f5f5f5;
 }
+
+.ui-growl { /* override the growl css in PrimeNG to play nicely with Bootstrap */
+  position:fixed;
+  top: 60px !important;
+  right: 20px;
+  width: 20em;
+}

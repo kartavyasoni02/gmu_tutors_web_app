@@ -18,6 +18,7 @@ import { MessagingComponent } from './messaging/messaging.component';
 import {MessagingService} from "./shared/services/messaging.service";
 import { LoadingComponent } from './loading/loading.component';
 import {LoadingService} from "./shared/services/loading.service";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {LoadingService} from "./shared/services/loading.service";
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,

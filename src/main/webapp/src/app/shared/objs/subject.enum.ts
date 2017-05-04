@@ -18,4 +18,9 @@ export enum TutorSubject {
   IT = <any>"IT",
   COMPSCI = <any>"Computer Science",
   MUSIC = <any>"Music"
+
+  // enum values in Typescript are interesting.
+  // example:
+  // TutorSubject.ENGH = ENGH.
+  // TutorSubject[TutorSubject.ENGH] = "English
 }

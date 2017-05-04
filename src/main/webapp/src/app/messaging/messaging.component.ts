@@ -8,7 +8,7 @@ import {MessagingService} from "../shared/services/messaging.service";
   templateUrl: './messaging.component.html'
 })
 export class MessagingComponent implements OnInit, OnDestroy {
-  private messages: Message[];
+  private messages: Message[] = [];
   private errorMessages: Subscription = new Subscription();
   private successMessages: Subscription = new Subscription();
   private infoMessages: Subscription = new Subscription();
