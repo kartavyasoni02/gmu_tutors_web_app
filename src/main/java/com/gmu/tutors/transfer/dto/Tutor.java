@@ -4,6 +4,7 @@ import org.joda.time.DateTime;
 import com.gmu.tutors.transfer.enums.TutorSubject;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -14,8 +15,8 @@ import java.util.List;
 public class Tutor {
     private String firstName;
     private String lastName;
-    private DateTime start;
-    private DateTime end;
+    private Date start;
+    private Date end;
     private BigDecimal rating; //average of all ratings. Range: 0-10
     private List<TutorSubject> subjects;
     private List<Location> locations;
@@ -37,19 +38,19 @@ public class Tutor {
         this.lastName = lastName;
     }
 
-    public DateTime getStart() {
+    public Date getStart() {
         return start;
     }
 
-    public void setStart(DateTime start) {
+    public void setStart(Date start) {
         this.start = start;
     }
 
-    public DateTime getEnd() {
+    public Date getEnd() {
         return end;
     }
 
-    public void setEnd(DateTime end) {
+    public void setEnd(Date end) {
         this.end = end;
     }
 

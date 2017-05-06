@@ -14,6 +14,8 @@ public class Location {
     private TutorLocation locationValue;
     private String description;
 
+    public Location(){}
+
     // UserDefined TutorLocation value should not, and can not be used with this constructor.
     public Location(@NotNull TutorLocation locationValue){
         if (locationValue == TutorLocation.UserDefined)

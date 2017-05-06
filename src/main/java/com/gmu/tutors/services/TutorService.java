@@ -31,8 +31,8 @@ public class TutorService {
         Tutor dummy = new Tutor();
         dummy.setFirstName("Andrew");
         dummy.setLastName("Huynh");
-        dummy.setStart(new DateTime());
-        dummy.setEnd(new DateTime().withYear(2018).withMonthOfYear(4).withDayOfMonth(20));
+        dummy.setStart(new DateTime().toDate());
+        dummy.setEnd(new DateTime().withYear(2018).withMonthOfYear(4).withDayOfMonth(20).toDate());
         dummy.setRating(new BigDecimal(9.5));
         dummy.setSubjects(Arrays.asList(TutorSubject.COMPSCI, TutorSubject.MATH, TutorSubject.IT));
         dummy.setAvailable(CalendarUtils.isAvailable(new DateTime(), dummy));
@@ -48,7 +48,9 @@ public class TutorService {
         MongoTutor mongoTutor = new MongoTutor();
         mongoTutor.setFirstName(tutor.getFirstName());
         mongoTutor.setLastName(tutor.getLastName());
-        tutorRepository.insert(mongoTutor); //assumes that this tutor doesn't exist yet. Can yield duplicates
+        mongoTutor.setRating(tutor.getRating());
+        mongoTutor.setNumOfRatings(tutor.getRating() != null ? 1 : 0);
+        tutorRepository.save(mongoTutor); //assumes that this tutor doesn't exist yet. Can yield duplicates
 
         return String.format("Successfully saved %s", tutor.getFullName());
     }

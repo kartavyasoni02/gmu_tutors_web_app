@@ -17,7 +17,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @SpringBootApplication(scanBasePackages = {"com/gmu/tutors/"})
 @Import({ApplicationConfig.class, SwaggerConfig.class})
 @EnableCaching
-@EnableWebMvc
+//@EnableWebMvc
 @ComponentScan(value = {"com.gmu.tutors"})
 public class GMUTutorsApplication extends SpringBootServletInitializer{
     public static void main(String[] args){

@@ -8,6 +8,6 @@ import com.gmu.tutors.transfer.dto.Tutor;
  */
 public class CalendarUtils {
     public static boolean isAvailable(DateTime currentTime, Tutor tutor){
-        return currentTime.isBefore(tutor.getEnd()) && currentTime.isAfter(tutor.getStart());
+        return currentTime.isBefore(new DateTime(tutor.getEnd())) && currentTime.isAfter(new DateTime(tutor.getStart()));
     }
 }

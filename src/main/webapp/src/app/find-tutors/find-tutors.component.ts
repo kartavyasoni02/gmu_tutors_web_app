@@ -102,11 +102,14 @@ export class FindTutorsComponent implements OnInit {
   // todo: this is for testing purposes
   private loadTutors() {
     this.tutors.forEach(tutor => {
+      this.loadingService.toggleLoadingIndicator(true);
       this.tutorService.addTutor(tutor).subscribe((data: string) => {
+          this.loadingService.toggleLoadingIndicator(false);
           console.log(data);
         },
         error => {
-          this.messagingService.addErrorMessage(error._body);
+          this.messagingService.addErrorMessage(error);
+          setTimeout(() => {this.loadingService.toggleLoadingIndicator(false)}, 1000);
         },
         () => {
           console.log("success");
@@ -129,7 +132,9 @@ export class FindTutorsComponent implements OnInit {
    * todo: incorporate lazy load
    */
   private loadData() {
+    this.loadingService.toggleLoadingIndicator(true);
     this.tutorService.getAllTutors().subscribe((data: Tutor[]) => {
+        this.loadingService.toggleLoadingIndicator(false);
         this.tutors = data;
         console.log(data);
         this.messagingService.addSuccessMessage("Successfully fetched tutor data");
@@ -139,12 +144,34 @@ export class FindTutorsComponent implements OnInit {
         console.log(error);
         //this.messagingService.addErrorMessage("An error occurred in loading data");
         this.messagingService.addErrorMessage(error._body);
+        setTimeout(this.loadingService.toggleLoadingIndicator(false),1000);
       },
       () => {
         //stuff
         console.log("after starting subscription");
       });
   }
+
+  // validation checks onBlur events for each of the inputs.
+  private validateEmailInput(){
+    let email = this.inputEmail;
+    // validations:
+    // 1) characters before @ symbol
+    // 2) one @ symbol
+    // 3) characters after @ symbol
+    // 4) at least 1 . after @
+    // ends in a valid domain - net, org, com, edu, etc.
+    // The email ahuynh11@masonlive.gmu.edu is valid. This validation is based off of this example
+
+  }
+  private validateNameInput(isFirstName: boolean){
+    let name = isFirstName ? this.inputFirstName : this.inputLastName;
+    // validate that the name only contains letters.
+  }
+  private validatePhoneNumber(){
+
+  }
+
 
   private showForm() {
     // initialize all of the fields as empty
@@ -166,6 +193,7 @@ export class FindTutorsComponent implements OnInit {
   }
 
   private confirmForm() {
+    // do a last validation check before we save the tutor information
     let tutor: Tutor = <Tutor>{
       firstName: this.inputFirstName,
       lastName: this.inputLastName,
@@ -175,11 +203,13 @@ export class FindTutorsComponent implements OnInit {
       end: this.inputEndDate,
       subjects: this.inputSubjects,
       locations: this.inputLocations
-    }
+    };
 
     // persist this tutor into the database through the PUT request
+    this.loadingService.toggleLoadingIndicator(true);
     this.tutorService.addTutor(tutor).subscribe((data: string) => {
-        this.tutors.push(tutor);
+      this.loadingService.toggleLoadingIndicator(false);
+      this.tutors.push(tutor);
         console.log(data);
         this.messagingService.addSuccessMessage("Successfully added");
       },
@@ -187,6 +217,7 @@ export class FindTutorsComponent implements OnInit {
         console.log(error);
         //this.messagingService.addErrorMessage("An error occurred while trying to add");
         this.messagingService.addErrorMessage(error._body);
+        setTimeout(this.loadingService.toggleLoadingIndicator(false), 1000);
       },
       () => {
         console.log("after starting subscription");

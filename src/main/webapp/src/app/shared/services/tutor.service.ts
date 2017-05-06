@@ -21,8 +21,9 @@ export class TutorService {
   }
 
   public addTutor(tutor: Tutor): Observable<string> {
-    let headers = new Headers({"Content": "application/json"});
+    let headers = new Headers({"Content-Type": "application/json"});
     let options = new RequestOptions({headers: headers});
+    console.log(this.envConfig.getEnvVariable('endPoint') + "/api/tutors/insert");
     return this.http.put(this.envConfig.getEnvVariable('endPoint') + "/api/tutors/insert", tutor, options)
       .map((res: Response) => <string>res.json().payload);
   }

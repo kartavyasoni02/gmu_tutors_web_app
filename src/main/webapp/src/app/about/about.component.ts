@@ -16,4 +16,10 @@ export class AboutComponent implements OnInit {
   ngOnInit() {
   }
 
+  private getAppStatistics(){
+    // todo: will try to add diagnostics like
+    // * average concurrent users
+    // * total available tutors
+
+  }
 }
