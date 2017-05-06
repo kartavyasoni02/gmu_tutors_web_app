@@ -4,7 +4,10 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {Ng2BootstrapModule} from 'ng-bootstrap/ng2-bootstrap';
 
-import {ButtonModule, DataTableModule, DialogModule, GrowlModule, SharedModule} from "primeng/primeng";
+import {
+  ButtonModule, ChartModule, DataTableModule, DialogModule, GrowlModule, InputMaskModule, InputTextModule,
+  SharedModule
+} from "primeng/primeng";
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from "./app-routing.module";
@@ -37,7 +40,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     HttpModule,
     AppRoutingModule,
     Ng2BootstrapModule.forRoot(),
-    DataTableModule, ButtonModule, DialogModule, GrowlModule, SharedModule
+    DataTableModule, ButtonModule, DialogModule, GrowlModule, InputMaskModule, ChartModule,
+    InputTextModule, SharedModule
   ],
   providers: [EnvConfig, TutorService, MessagingService, LoadingService],
   bootstrap: [AppComponent]

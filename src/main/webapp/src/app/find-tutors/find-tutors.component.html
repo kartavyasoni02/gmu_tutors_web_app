@@ -10,7 +10,8 @@
       </p-header>
       <p-footer style="text-align: center;">
         <span class="text-muted">
-          <u>Current Date: {{currentDate | date:'MM/dd/yy'}}</u> | <button pButton (click)="showForm()" label="Add Tutor"></button>
+          <u>Current Date: {{currentDate | date:'MM/dd/yy'}}</u> | <button pButton (click)="showForm()"
+                                                                           label="Add Tutor"></button>
         </span>
       </p-footer>
       <p-column *ngFor="let col of cols" [filter]="true" [sortable]="true" [field]="col.field"
@@ -20,28 +21,31 @@
           {{row[col.field]}}
         </ng-template>
       </p-column>
+      <!-- todo: add UI control for adding a rating to a tutor -->
     </p-dataTable>
   </div>
 </div>
 
-<p-dialog header="Add a Tutor" [(visible)]="showFormPopup" modal="modal" [width]="500" [responsive]="true" [resizable]="true">
-  <form>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" [(ngModel)]="inputEmail" [ngModelOptions]="{'standalone': 'true'}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else</small>
-    </div>
-  </form>
+<p-dialog header="Add a Tutor" [(visible)]="showFormPopup" modal="modal" [width]="500" [responsive]="true"
+          [resizable]="true">
+  <p class="lead">Things marked with * are required</p>
+  <!-- since all of the input values are being stored individually, no need to actually use a <form> -->
+  <label for="inputEmail">*Email Address: </label>
+  <input pInputText type="email" [(ngModel)]="inputEmail" id="inputEmail" (blur)="validateEmailInput()">
+  <br/>
+  <label for="inputPhone">Phone Number: </label>
+  <p-inputMask id="inputPhone" mask="(999) 999-9999" [(ngModel)]="inputPhoneNumber" placeholder="(___) ___-____"></p-inputMask>
+
   <p-footer>
     <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
-      <button type="button" pButton icon="fa-close" (click)="cancelForm()" label="No"></button>
-      <button type="button" pButton icon="fa-check" (click)="confirmForm()" label="Yes"></button>
+      <button type="button" pButton icon="fa-close" (click)="cancelForm()" label="Cancel"></button>
+      <button type="button" pButton icon="fa-check" (click)="confirmForm()" label="Save Information" [disabled]="validInputs"></button>
     </div>
   </p-footer>
 </p-dialog>
 
 <footer class="footer">
-  <div class="container">
+  <div class="container" style="position: absolute !important;">
     <span class="text-muted">Find us on GitHub <a href="https://github.com/SaxyPandaBear/gmu_tutors_web_app"><img
       src="../../assets/GitHub-Mark-32px.png"></a></span>
   </div>
