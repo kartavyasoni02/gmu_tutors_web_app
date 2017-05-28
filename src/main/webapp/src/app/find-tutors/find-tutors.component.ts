@@ -192,7 +192,8 @@ export class FindTutorsComponent implements OnInit {
     // ends in a valid domain - net, org, com, edu, etc.
     // The email ahuynh11@masonlive.gmu.edu is valid. This validation is based off of this example
     // todo: validate
-    this.validEmail = true;
+    // wow: http://stackoverflow.com/questions/201323/using-a-regular-expression-to-validate-an-email-address
+    this.validEmail = (/(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/).test(this.inputEmail);
     return this.validEmail;
   }
   private validateNameInput(isFirstName: boolean): boolean{
@@ -208,7 +209,8 @@ export class FindTutorsComponent implements OnInit {
     }
     return check;
   }
-  private validatePhoneNumber(){
+  private validatePhoneNumber(): boolean{
+    console.log(this.inputPhoneNumber); // just to see what the input looks like with the mask.
     this.validPhoneNumber = true; //todo: validate
     return this.validPhoneNumber;
   }
@@ -217,7 +219,8 @@ export class FindTutorsComponent implements OnInit {
     if (this.inputStartDate == null || this.inputEndDate == null){ return false; }
     else {
       // since they're both checked, just compare the two values.
-      return this.inputStartDate < this.inputEndDate;
+      // note: need to make sure start date is also after our current time...
+      return this.inputStartDate < this.inputEndDate && this.currentDate < this.inputStartDate;
     }
   }
 

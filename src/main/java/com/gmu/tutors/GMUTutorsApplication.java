@@ -19,12 +19,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableCaching
 //@EnableWebMvc
 @ComponentScan(value = {"com.gmu.tutors"})
-public class GMUTutorsApplication extends SpringBootServletInitializer{
+public class GMUTutorsApplication {
     public static void main(String[] args){
-        ApplicationContext context = SpringApplication.run(GMUTutorsApplication.class, args);
-    }
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder){
-        return builder.sources(GMUTutorsApplication.class);
+        SpringApplication.run(GMUTutorsApplication.class, args);
     }
 }

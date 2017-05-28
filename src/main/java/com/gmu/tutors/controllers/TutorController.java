@@ -31,16 +31,14 @@ public class TutorController {
 
     private Logger log = LoggerFactory.getLogger(TutorController.class);
 
-    @RequestMapping(value="/all", method = RequestMethod.GET)
-    @ResponseStatus(value = HttpStatus.OK)
+    @GetMapping("/all")
     @ApiOperation(value="Fetches all of the tutors currently in the system.")
     public List<Tutor> fetchAllTutors(HttpServletRequest servletRequest) throws IOException{
         log.info("GET request: /api/tutors/all");
         return tutorService.getAllTutors();
     }
 
-    @RequestMapping(value="/insert", method = RequestMethod.PUT)
-    @ResponseStatus(value = HttpStatus.OK)
+    @PutMapping("/insert")
     @ApiOperation(value="Persists a new tutor from the frotn end into the database")
     public Response<String> addTutor(@RequestBody Tutor tutor,
                                      HttpServletRequest servletRequest) throws IOException{
@@ -48,11 +46,10 @@ public class TutorController {
         return new Response<>(tutorService.insertTutor(tutor));
     }
 
-    @RequestMapping(value="/rating/{id}", method = RequestMethod.PATCH)
-    @ResponseStatus(value= HttpStatus.OK)
+    @PatchMapping("/rating/{id}")
     @ApiOperation(value = "Adds a rating to an existing Tutor")
     public String updateRating(@RequestBody BigDecimal rating,
-                               @RequestParam String id,
+                               @PathVariable String id,
                                HttpServletRequest servletRequest) throws IOException{
         log.info("PATCH request: /api/tutors/rating/{id} with value: {}", id);
         return tutorService.updateRating(id, rating);

@@ -40,8 +40,8 @@ public class TutorTest {
 
         DateTime start = new DateTime().withYear(2017).withMonthOfYear(1).withDayOfMonth(1);
         DateTime end = new DateTime().withYear(2017).withMonthOfYear(12).withDayOfMonth(31);
-        tutor.setStart(start);
-        tutor.setEnd(end);
+        tutor.setStart(start.toDate());
+        tutor.setEnd(end.toDate());
         assertEquals(start, tutor.getStart());
         assertEquals(end, tutor.getEnd());
 

@@ -36,6 +36,10 @@
   <label for="inputPhone">Phone Number: </label>
   <p-inputMask id="inputPhone" mask="(999) 999-9999" [(ngModel)]="inputPhoneNumber" placeholder="(___) ___-____"></p-inputMask>
 
+  <div style="display: block;">
+    <label for="startDate">Start: </label>
+    <p-calendar id="startDate" [(ngModel)]="inputStartDate" showTime=true></p-calendar>
+  </div>
   <p-footer>
     <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
       <button type="button" pButton icon="fa-close" (click)="cancelForm()" label="Cancel"></button>
