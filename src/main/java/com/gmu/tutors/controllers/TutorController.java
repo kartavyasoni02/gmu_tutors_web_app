@@ -40,10 +40,10 @@ public class TutorController {
 
     @PutMapping("/insert")
     @ApiOperation(value="Persists a new tutor from the frotn end into the database")
-    public Response<String> addTutor(@RequestBody Tutor tutor,
+    public String addTutor(@RequestBody Tutor tutor,
                                      HttpServletRequest servletRequest) throws IOException{
         log.info("PUT request: /api/tutors/insert with value: {}", tutor);
-        return new Response<>(tutorService.insertTutor(tutor));
+        return new tutorService.insertTutor(tutor);
     }
 
     @PatchMapping("/rating/{id}")
