@@ -19,10 +19,10 @@ public class LocationTest {
         assertEquals(TutorLocation.Engineering.description(), location1.toString());
 
         // happy path - 2 param constructor
-        Location location2 = new Location(TutorLocation.Exploratory, "GMU Engineering");
-        assertEquals("GMU Engineering", location2.getDescription());
-        assertEquals(TutorLocation.Engineering, location2.getLocationValue());
-        assertEquals("GMU Engineering", location2.toString());
+        Location location2 = new Location(TutorLocation.Exploratory, "GMU Exploratory");
+        assertEquals("GMU Exploratory", location2.getDescription());
+        assertEquals(TutorLocation.Exploratory, location2.getLocationValue());
+        assertEquals("GMU Exploratory", location2.toString());
 
         // exceptional path
         try {

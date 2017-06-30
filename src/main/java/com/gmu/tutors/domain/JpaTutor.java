@@ -1,20 +1,12 @@
-package com.gmu.tutors.transfer.model;
+package com.gmu.tutors.domain;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.TypeAlias;
-import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.Entity;
 import java.math.BigDecimal;
 
-/**
- * Created by Andrew on 4/29/2017.
- *
- * reading guide for MongoDB integration
- * url: https://spring.io/guides/gs/accessing-mongodb-data-rest/
- */
-@Document(collection = "tutor")
-@TypeAlias(value = "tutor")
-public class MongoTutor {
+@Entity
+public class JpaTutor {
     @Id
     private String id;
     private String firstName;

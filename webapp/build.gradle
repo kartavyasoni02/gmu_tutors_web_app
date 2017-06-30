@@ -16,3 +16,8 @@ task test(type: YarnTask) {
     dependsOn 'yarn_install'
     args = ['run', 'test']
 }
+
+clean {
+    delete 'dist'
+    delete 'node_modules'
+}

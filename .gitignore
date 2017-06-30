@@ -24,16 +24,17 @@
 /target
 /app/**/*.js
 /app/**/*.js.map
-/src/main/webapp/node_modules
+/node_modules
 *.iml
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-# I guess I'll just leave this here?
 # /src/main/resources/application.properties
 .idea/
 
 gradle.properties
 
 /.gradle
+
+/out

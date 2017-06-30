@@ -1,8 +1,7 @@
 package com.gmu.tutors.transfer.dto;
 
-import org.joda.time.DateTime;
-
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 
 /**
  * Created by Andrew on 5/10/2017.
@@ -12,23 +11,23 @@ import java.io.Serializable;
  */
 public class DateRange implements Serializable {
 
-    private DateTime start;
-    private DateTime end;
+    private ZonedDateTime start;
+    private ZonedDateTime end;
     private String tutorId; //linked to a tutor by ID? Maybe? Not sure yet
 
-    public DateTime getStart() {
+    public ZonedDateTime getStart() {
         return start;
     }
 
-    public void setStart(DateTime start) {
+    public void setStart(ZonedDateTime start) {
         this.start = start;
     }
 
-    public DateTime getEnd() {
+    public ZonedDateTime getEnd() {
         return end;
     }
 
-    public void setEnd(DateTime end) {
+    public void setEnd(ZonedDateTime end) {
         this.end = end;
     }
 

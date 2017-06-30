@@ -17,10 +17,6 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
 
-/**
- * Created by Andrew on 4/21/2017.
- */
-@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping(value = "/api/tutors", produces = MediaType.APPLICATION_JSON_VALUE)
 @Api(tags = "Tutor Controller", description = "Operations on tutor objects")
@@ -43,7 +39,7 @@ public class TutorController {
     public String addTutor(@RequestBody Tutor tutor,
                                      HttpServletRequest servletRequest) throws IOException{
         log.info("PUT request: /api/tutors/insert with value: {}", tutor);
-        return new tutorService.insertTutor(tutor);
+        return tutorService.insertTutor(tutor);
     }
 
     @PatchMapping("/rating/{id}")

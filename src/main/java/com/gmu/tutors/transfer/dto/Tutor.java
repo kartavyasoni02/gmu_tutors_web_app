@@ -1,22 +1,20 @@
 package com.gmu.tutors.transfer.dto;
 
-import org.joda.time.DateTime;
 import com.gmu.tutors.transfer.enums.TutorSubject;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.math.BigDecimal;
+import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by Andrew on 4/21/2017.
- *
- * Tutor object that contains basic data on a tutor.
- */
 public class Tutor {
     private String firstName;
     private String lastName;
-    private Date start;
-    private Date end;
+    private ZonedDateTime start;
+    private ZonedDateTime end;
     private BigDecimal rating; //average of all ratings. Range: 0-10
     private List<TutorSubject> subjects;
     private List<Location> locations;
@@ -38,19 +36,19 @@ public class Tutor {
         this.lastName = lastName;
     }
 
-    public Date getStart() {
+    public ZonedDateTime getStart() {
         return start;
     }
 
-    public void setStart(Date start) {
+    public void setStart(ZonedDateTime start) {
         this.start = start;
     }
 
-    public Date getEnd() {
+    public ZonedDateTime getEnd() {
         return end;
     }
 
-    public void setEnd(Date end) {
+    public void setEnd(ZonedDateTime end) {
         this.end = end;
     }
 
@@ -86,26 +84,51 @@ public class Tutor {
         this.available = available;
     }
 
-    /**
-     * UI friendly formatted full name.
-     * LastName, FirstName
-     * @return
-     */
-    public String getFullName(){
-        return String.format("%s, %s", getLastName(), getFirstName());
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Tutor tutor = (Tutor) o;
+
+        return new EqualsBuilder()
+                .append(available, tutor.available)
+                .append(firstName, tutor.firstName)
+                .append(lastName, tutor.lastName)
+                .append(start, tutor.start)
+                .append(end, tutor.end)
+                .append(rating, tutor.rating)
+                .append(subjects, tutor.subjects)
+                .append(locations, tutor.locations)
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37)
+                .append(firstName)
+                .append(lastName)
+                .append(start)
+                .append(end)
+                .append(rating)
+                .append(subjects)
+                .append(locations)
+                .append(available)
+                .toHashCode();
     }
 
     @Override
     public String toString() {
-        return "Tutor{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", start=" + start +
-                ", end=" + end +
-                ", rating=" + rating +
-                ", subjects=" + subjects +
-                ", locations=" + locations +
-                ", available=" + available +
-                '}';
+        return new ToStringBuilder(this)
+                .append("firstName", firstName)
+                .append("lastName", lastName)
+                .append("start", start)
+                .append("end", end)
+                .append("rating", rating)
+                .append("subjects", subjects)
+                .append("locations", locations)
+                .append("available", available)
+                .toString();
     }
 }
