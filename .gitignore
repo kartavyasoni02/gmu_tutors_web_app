@@ -33,5 +33,7 @@ hs_err_pid*
 # I guess I'll just leave this here?
 # /src/main/resources/application.properties
 .idea/
-lib/
-data/
+
+gradle.properties
+
+/.gradle
