@@ -30,6 +30,7 @@ hs_err_pid*
 **/node_modules
 *.iml
 **/build
+**/dist
 
 gradle.properties
 
