@@ -42,3 +42,4 @@ gradle.properties
 
 # needs this for builds
 !gradle-wrapper.jar
+!gradle-wrapper.properties
