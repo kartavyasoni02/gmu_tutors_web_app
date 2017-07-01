@@ -6,15 +6,17 @@ plugins {
 node {
     version = '6.11.0'
     yarnVersion = '0.24.6'
-    download = System.getenv('NODE_SETUP_REQUIRED')
+    download = Boolean.parseBoolean(System.getenv('NODE_SETUP_REQUIRED'))
     workDir = file("${project.buildDir}/nodejs")
     yarnWorkDir = file("${project.buildDir}/yarn")
     nodeModulesDir = file("${project.projectDir}")
 }
 
-task build(type: YarnTask) {
+task buildFrontend(type: YarnTask) {
   args = ['run', 'build']
 }
+
+build.dependsOn(buildFrontend)
 
 task test(type: YarnTask) {
     args = ['run', 'test']
