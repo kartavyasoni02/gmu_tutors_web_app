@@ -24,8 +24,7 @@ This project is an application of things I learn about the technologies I learn 
     - Gradle is used to build this project
 - Angular 2 Frontend:
     - Built with [Angular CLI](https://cli.angular.io/)
-    - [Bootstrap 4 Angular 2 directives](https://ng-bootstrap.github.io/#/home)
-    - [PrimeNG](https://www.primefaces.org/primeng/)
+    - Design with [Angular Material](https://material.angular.io/)
 - Containerized with [Docker](https://docs.docker.com/engine/installation/)    
 
 ## How do I run the project?
