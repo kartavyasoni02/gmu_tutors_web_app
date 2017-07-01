@@ -15,6 +15,7 @@ node {
 task buildFrontend(type: YarnTask) {
   args = ['run', 'build']
 }
+buildFrontend.dependsOn(yarn_install)
 
 build.dependsOn(buildFrontend)
 
