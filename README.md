@@ -1,5 +1,7 @@
 GMU Tutors Web Application
 ==========================
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/SaxyPandaBear/gmu_tutors_web_app/blob/master/LICENSE)
+[![build status](https://travis-ci.org/SaxyPandaBear/gmu_tutors_web_app.svg?branch=master)](https://travis-ci.org/SaxyPandaBear/gmu_tutors_web_app)
 > A full stack web application to connect students with peer mentors on campus.
 
 This project is an application of things I learn about the technologies I learn at work and in my free time.
