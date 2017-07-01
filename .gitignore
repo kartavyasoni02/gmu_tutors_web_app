@@ -19,22 +19,23 @@
 *.tar.gz
 *.rar
 
-.idea/*
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+.idea/
 /.project
 /target
 /app/**/*.js
 /app/**/*.js.map
-/node_modules
+**/node_modules
 *.iml
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-
-# /src/main/resources/application.properties
-.idea/
+**/build
 
 gradle.properties
 
 /.gradle
 
 /out
+
+# yarn lock file should be commited to enforce front end dependencies
+!yarn.lock

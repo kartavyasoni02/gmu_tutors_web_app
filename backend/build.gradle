@@ -37,3 +37,19 @@ dependencies {
 clean {
     delete 'out'
 }
+
+import com.bmuschko.gradle.docker.tasks.image.Dockerfile
+
+task generateDockerfile(type: Dockerfile) {
+    destFile = project.file('build/Dockerfile')
+    from 'java:8'
+    workingDir '/app'
+    environmentVariable('MYSQL_USERNAME', System.getenv('MYSQL_USERNAME'))
+    environmentVariable('MYSQL_PASSWORD', System.getenv('MYSQL_PASSWORD'))
+    addFile("libs/$jar.archiveName", '/app')
+    runCommand('wget https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh')
+    runCommand("bash -c 'chmod +x ./wait-for-it.sh'")
+    entryPoint('./wait-for-it.sh', 'db:3306','-t', '0', '-s', '--', 'java', '-Djava.security.egd=file:/dev/./urandom', '-jar', jar.archiveName)
+    exposePort 8080
+}
+generateDockerfile.dependsOn clean

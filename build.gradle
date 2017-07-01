@@ -7,3 +7,13 @@ allprojects {
     group = 'com.github.saxypandabear'
     version = '0.0.1-SNAPSHOT'
 }
+
+task composeUp(type: Exec) {
+    executable 'docker-compose'
+    args = ['up', '--build', '-d']
+}
+
+task composeDown(type: Exec) {
+    executable 'docker-compose'
+    args = ['down']
+}

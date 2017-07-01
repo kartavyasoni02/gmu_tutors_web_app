@@ -28,8 +28,29 @@ This project is an application of things I learn about the technologies I learn 
     - [PrimeNG](https://www.primefaces.org/primeng/)
 - Containerized with [Docker](https://docs.docker.com/engine/installation/)    
 
-### How do I run the project? 
+## How do I run the project?
+
+#### Setup
 - Download/Setup Docker and Docker Compose
+- Set environment variables
+  - note: NODE_SETUP_REQUIRED value depends on whether or not you have nodejs and/or yarn set up on your host machine
+  
+  - On Linux and Unix (in ~/.bashrc file)
+    ```bash
+    export MYSQL_USERNAME=myUsername
+    export MYSQL_PASSWORD=myPassword
+    export NODE_SETUP_REQUIRED=true
+    ```
+    - Then source the variables with `source ~/.bashrc`
+  
+  - On Windows (in command line)
+    ```cmd
+    set MYSQL_USERNAME=myUsername
+    set MYSQL_PASSWORD=myPassword
+    set NODE_SETUP_REQUIRED=false
+    ```
+
+#### Running the Project
 - Run the entire application with `./gradlew composeUp`
 - Navigate to `localhost:8080` to see the application at work
 - Terminate the application with `./gradlew composeDown`
