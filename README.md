@@ -3,7 +3,8 @@ GMU Tutors Web Application
 > A full stack web application to connect students with peer mentors on campus.
 
 This project is an application of things I learn about the technologies I learn at work and in my free time.
-###Why make the application?
+
+### Why make the application?
 
 - The idea for this application stemmed from an Amazon Alexa hack contest. 
   The idea of the contest was to develop an Amazon Alexa skill-kit that enabled improved access to 
