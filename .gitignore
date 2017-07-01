@@ -39,3 +39,6 @@ gradle.properties
 
 # yarn lock file should be commited to enforce front end dependencies
 !yarn.lock
+
+# needs this for builds
+!gradle-wrapper.jar
