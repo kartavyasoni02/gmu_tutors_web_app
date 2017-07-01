@@ -12,7 +12,7 @@ This project is an application of things I learn about the technologies I learn 
   for specified subjects / times / locations.
 - Ultimately, this idea turned into what this project was - a playground for me to learn developing a web app,
   as well as learning how to use `MongoDB and NoSQL`.
-- As of now, the project is just for me to continue practicing what I learn about Spring Boot and Angular 2-.
+- As of now, the project is just for me to continue practicing what I learn about Spring Boot and Angular 2+.
   
 ### What's the technology stack?
 
@@ -35,14 +35,21 @@ This project is an application of things I learn about the technologies I learn 
 
 ## TODO
 [ ] Set up frontend to be served through Spring Boot
+
 [ ] Write Gradle tasks to automate Dockerfile, container, and image building
+
 [ ] Write Gradle tasks to integrate Docker Compose
+
 [ ] Update frontend code to follow best practices
+
 [ ] Clean up backend code
+
 [ ] Set up MySQL connection to Spring Boot
+
 [ ] Set up backend tests to use embedded H2 while testing
+
 [ ] Integrate CI with Travis
+
 [ ] Set up Gradle tasks for AWS deployment **OR** Travis to deploy
+
 [ ] Add test coverage
-
-
