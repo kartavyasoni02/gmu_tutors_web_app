@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Tutor} from "../../shared/models/tutor.model";
 import {ZonedDateTime, ZoneId} from "js-joda";
 
@@ -16,17 +16,17 @@ export class TutorSearchPageComponent implements OnInit {
   // todo: move random generation to backend and hook up REST endpoints
   public tutors: Tutor[];
   private firstNames: string[] = [
-    'Andrew','Anthony','Alice','Alvin','Amanda','Amy','Beth','Bernie','Brian','Carl','Carly','Charlie','Chris',
-    'Cody','Danny','Dennis','Drake','Edward','Eric','Elizabeth','Emily','Finn','Francis','George','Ginny',
-    'Haley','Harper','James','Jason','Jennifer','Jimmy','Josh','Katie','Kelsey','Kevin','Kimberly','Lane',
-    'Laura','Lauren','Michelle','Monica','Mark','Norman','Nick','Ollie','Patrick','Percy','Peter','Penelope',
-    'Quinn','Rachel','Ruth','Steven','Sally','Stan','Sarah','Tanner','Thomas','Tony','Veronica','Victoria',
-    'Wallace','Walter','Will','Yolanda'
+    'Andrew', 'Anthony', 'Alice', 'Alvin', 'Amanda', 'Amy', 'Beth', 'Bernie', 'Brian', 'Carl', 'Carly', 'Charlie', 'Chris',
+    'Cody', 'Danny', 'Dennis', 'Drake', 'Edward', 'Eric', 'Elizabeth', 'Emily', 'Finn', 'Francis', 'George', 'Ginny',
+    'Haley', 'Harper', 'James', 'Jason', 'Jennifer', 'Jimmy', 'Josh', 'Katie', 'Kelsey', 'Kevin', 'Kimberly', 'Lane',
+    'Laura', 'Lauren', 'Michelle', 'Monica', 'Mark', 'Norman', 'Nick', 'Ollie', 'Patrick', 'Percy', 'Peter', 'Penelope',
+    'Quinn', 'Rachel', 'Ruth', 'Steven', 'Sally', 'Stan', 'Sarah', 'Tanner', 'Thomas', 'Tony', 'Veronica', 'Victoria',
+    'Wallace', 'Walter', 'Will', 'Yolanda'
   ];
   private lastNames: string[] = [
-    'Allen','Anderson','Belladona','Brown','Carson','Clark','Davis','Dee','Ellis','Ferdinand','Gray','Garcia',
-    'Hall','Harris','Jackson','Jacobs','King','Lee','Lewis','Martin','Moore','Morris','Nelson','Oliver','Parsons',
-    'Peterson','Smith','Stewart','Taylor','Thomas','Turner','Ward','White','Williams','Wilson'
+    'Allen', 'Anderson', 'Belladona', 'Brown', 'Carson', 'Clark', 'Davis', 'Dee', 'Ellis', 'Ferdinand', 'Gray', 'Garcia',
+    'Hall', 'Harris', 'Jackson', 'Jacobs', 'King', 'Lee', 'Lewis', 'Martin', 'Moore', 'Morris', 'Nelson', 'Oliver', 'Parsons',
+    'Peterson', 'Smith', 'Stewart', 'Taylor', 'Thomas', 'Turner', 'Ward', 'White', 'Williams', 'Wilson'
   ];
 
   constructor() {
@@ -39,7 +39,7 @@ export class TutorSearchPageComponent implements OnInit {
   private generateDummyTutorList(): Tutor[] {
     let resultList = [];
     let range: number = Math.floor(Math.random() * 50) + 50;
-    for (let i=0; i < range; i++) {
+    for (let i = 0; i < range; i++) {
       resultList.push(this.generateRandomTutor())
     }
     return resultList as Tutor[];

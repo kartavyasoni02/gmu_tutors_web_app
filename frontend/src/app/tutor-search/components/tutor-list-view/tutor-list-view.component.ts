@@ -11,7 +11,8 @@ export class TutorListViewComponent implements OnInit {
   @Input()
   public tutors: Tutor[];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

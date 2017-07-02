@@ -1,6 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TutorListViewComponent } from './tutor-list-view.component';
+import {TutorListViewComponent} from './tutor-list-view.component';
+import {MdListModule} from '@angular/material';
+import {SharedModule} from '../../../shared/shared.module';
 
 describe('TutorListViewComponent', () => {
   let component: TutorListViewComponent;
@@ -8,9 +10,10 @@ describe('TutorListViewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TutorListViewComponent ]
+      declarations: [TutorListViewComponent],
+      imports: [SharedModule, MdListModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
