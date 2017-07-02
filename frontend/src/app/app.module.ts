@@ -9,7 +9,7 @@ import {InvalidUrlModule} from './invalid-url/invalid-url.module';
 import {TutorProfileModule} from './tutor-profile/tutor-profile.module';
 import {TutorSearchModule} from './tutor-search/tutor-search.module';
 import {
-  MdButtonModule, MdIconModule, MdMenuModule, MdSidenavModule, MdTabsModule,
+  MdButtonModule, MdIconModule, MdMenuModule, MdTabsModule,
   MdToolbarModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';

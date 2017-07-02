@@ -1,3 +1,5 @@
-<p>
-  tutor-list-view works!
-</p>
+<md-list *ngFor="let tutor of tutors">
+  <md-list-item class="tutor-item">
+    <gmu-tutor-card [tutor]="tutor"></gmu-tutor-card>
+  </md-list-item>
+</md-list>
