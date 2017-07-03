@@ -37,10 +37,12 @@ dependencies {
 clean {
     delete 'out'
 }
+build.dependsOn clean
 
 import com.bmuschko.gradle.docker.tasks.image.Dockerfile
 
 task generateDockerfile(type: Dockerfile) {
+    dependsOn build
     destFile = project.file('build/Dockerfile')
     from 'java:8'
     workingDir '/app'
@@ -52,4 +54,4 @@ task generateDockerfile(type: Dockerfile) {
     entryPoint('./wait-for-it.sh', 'db:3306','-t', '0', '-s', '--', 'java', '-Djava.security.egd=file:/dev/./urandom', '-jar', jar.archiveName)
     exposePort 8080
 }
-generateDockerfile.dependsOn clean
+
