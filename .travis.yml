@@ -4,22 +4,22 @@ addons:
 language: java
 jdk:
   - oraclejdk8
-node_js: "node"
+node_js: "node"  # sets up node on the CI runner
 before_install:
-  - chmod +x gradlew
-  - export CHROME_BIN=chromium-browser
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
+  - chmod +x gradlew  # need to give access to Travis to execute gradlew
+  - export CHROME_BIN=chromium-browser  # For running frontend tests
+  - export DISPLAY=:99.0                # For running frontend tests
+  - sh -e /etc/init.d/xvfb start        # For running frontend tests
 script:
-  - ./gradlew clean build test
+  - ./gradlew clean build test  # runs both the frontend and backend tests
 before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock  # cleans gradle cache if necessary
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/      # cleans gradle cache if necessary
 cache:
-  yarn: true
+  yarn: true  # caches yarn for consecutive builds
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 branches:
   except:
-    - gh-pages
+    - gh-pages  # don't run CI pipeline on gh-pages
