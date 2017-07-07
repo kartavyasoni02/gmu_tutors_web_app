@@ -12,7 +12,6 @@ import com.gmu.tutors.transfer.dto.Tutor;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -23,13 +22,13 @@ public class TutorController {
     @Autowired
     TutorService tutorService;
 
-    private Logger log = LoggerFactory.getLogger(TutorController.class);
+    private static final Logger log = LoggerFactory.getLogger(TutorController.class);
 
     @GetMapping("/all")
     @ApiOperation(value="Fetches all of the tutors currently in the system.")
     public List<Tutor> fetchAllTutors(HttpServletRequest servletRequest) throws IOException{
         log.info("GET request: /api/tutors/all");
-        return tutorService.getAllTutors();
+        return tutorService.getDummyTutorList();
     }
 
     @PutMapping("/insert")
@@ -42,8 +41,8 @@ public class TutorController {
 
     @PatchMapping("/rating/{id}")
     @ApiOperation(value = "Adds a rating to an existing Tutor")
-    public String updateRating(@RequestBody BigDecimal rating,
-                               @PathVariable String id,
+    public String updateRating(@RequestBody Double rating,
+                               @PathVariable Long id,
                                HttpServletRequest servletRequest) throws IOException{
         log.info("PATCH request: /api/tutors/rating/{id} with value: {}", id);
         return tutorService.updateRating(id, rating);

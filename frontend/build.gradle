@@ -1,6 +1,9 @@
 plugins {
+    id 'com.bmuschko.docker-remote-api' version '3.0.7'
     id 'com.moowork.node' version '1.2.0'
     id 'base'
+    id 'idea'
+    id 'eclipse'
 }
 
 node {
@@ -13,7 +16,7 @@ node {
 }
 
 task buildFrontend(type: YarnTask) {
-  args = ['run', 'build']
+    args = ['run', 'build', '--output-path', './build']
 }
 buildFrontend.dependsOn(yarn_install)
 
@@ -22,4 +25,18 @@ build.dependsOn(buildFrontend)
 task test(type: YarnTask) {
     args = ['run', 'test']
 }
+
+import com.bmuschko.gradle.docker.tasks.image.Dockerfile
+task createDockerfile(type: Dockerfile) {
+    dependsOn buildFrontend
+    destFile = project.file('build/Dockerfile')
+    from 'nginx'
+    copyFile('dist', '/usr/share/nginx/html')
+    exposePort 80
+}
+
+task cleanFrontendFiles {
+    delete 'dist', 'build'
+}
+clean.dependsOn cleanFrontendFiles
 

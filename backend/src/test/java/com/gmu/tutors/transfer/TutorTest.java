@@ -1,11 +1,11 @@
-package com.gmu.tutors;
+package com.gmu.tutors.transfer;
 
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ServiceTest {
-    private Logger log = LoggerFactory.getLogger(ServiceTest.class);
+public class TutorTest {
+    private static final Logger log = LoggerFactory.getLogger(TutorTest.class);
 
     @Test
     public void foo() {

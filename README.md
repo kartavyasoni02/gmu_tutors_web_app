@@ -29,7 +29,8 @@ This project is an application of things I learn about the technologies I learn 
     - Design with [Angular Material](https://material.angular.io/)
 - Containerized with [Docker](https://docs.docker.com/engine/installation/)    
 
-## How do I run the project?
+Project Structure and Setup
+============================
 
 #### Setup
 - Download/Setup Docker and Docker Compose
@@ -53,5 +54,11 @@ This project is an application of things I learn about the technologies I learn 
 
 #### Running the Project
 - Run the entire application with `./gradlew composeUp`
-- Navigate to `localhost:8080` to see the application at work
+- Navigate to `localhost:80` to see the application at work
+- Interact with the RESTful API at `localhost:8080`
 - Terminate the application with `./gradlew composeDown`
+
+Documentation
+=============
+
+TODO: host javadoc

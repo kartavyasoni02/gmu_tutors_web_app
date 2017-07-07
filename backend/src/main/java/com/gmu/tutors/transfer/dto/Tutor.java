@@ -14,10 +14,25 @@ public class Tutor {
     private String lastName;
     private ZonedDateTime start;
     private ZonedDateTime end;
-    private BigDecimal rating; //average of all ratings. Range: 0-10
+    private Double rating; //average of all ratings. Range: 0-10
     private List<TutorSubject> subjects;
     private List<Location> locations;
     private boolean available;
+
+    public Tutor() {
+    }
+
+    public Tutor(String firstName, String lastName, ZonedDateTime start, ZonedDateTime end, Double rating,
+                 List<TutorSubject> subjects, List<Location> locations, boolean available) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.start = start;
+        this.end = end;
+        this.rating = rating;
+        this.subjects = subjects;
+        this.locations = locations;
+        this.available = available;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -51,11 +66,11 @@ public class Tutor {
         this.end = end;
     }
 
-    public BigDecimal getRating() {
+    public Double getRating() {
         return rating;
     }
 
-    public void setRating(BigDecimal rating) {
+    public void setRating(Double rating) {
         this.rating = rating;
     }
 

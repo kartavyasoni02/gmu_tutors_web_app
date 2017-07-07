@@ -1,24 +1,34 @@
 package com.gmu.tutors.domain;
 
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.Entity;
-import java.math.BigDecimal;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class JpaTutor {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String firstName;
     private String lastName;
-    private BigDecimal rating;
+    private Double rating;
     private Integer numOfRatings; // we aren't keeping track of all of the ratings, so we need to keep track of how many
 
-    public String getId() {
+    protected JpaTutor() {}
+
+    public JpaTutor(String firstName, String lastName, Double rating, Integer numOfRatings) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.rating = rating;
+        this.numOfRatings = numOfRatings;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -38,11 +48,11 @@ public class JpaTutor {
         this.lastName = lastName;
     }
 
-    public BigDecimal getRating() {
+    public Double getRating() {
         return rating;
     }
 
-    public void setRating(BigDecimal rating) {
+    public void setRating(Double rating) {
         this.rating = rating;
     }
 
