@@ -1,9 +1,9 @@
 <md-list>
-  <md-list-item class="tutor-item" *ngFor="let tutor of tutors">
+  <md-list-item class="tutor-item" *ngFor="let tutor of tutors" (click)="alertIndividualTutor(tutor)">
     <md-card class="tutor-card">
       <span>{{tutor.firstName}} {{tutor.lastName}}</span>
       <br>
-      <span>{{tutor.rating | number:'1.1-3'}}</span>
+      <span>{{tutor.rating | number:'1.3-3'}}</span>
     </md-card>
   </md-list-item>
 </md-list>

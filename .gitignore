@@ -38,6 +38,8 @@ gradle.properties
 
 /out
 
+**/coverage
+
 # yarn lock file should be commited to enforce front end dependencies
 !yarn.lock
 

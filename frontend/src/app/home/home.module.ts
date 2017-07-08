@@ -1,14 +1,17 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { HomeRoutingModule } from './home-routing.module';
-import { HomePageComponent } from './home-page/home-page.component';
+import {HomeRoutingModule} from './home-routing.module';
+import {HomePageComponent} from './home-page/home-page.component';
+import {MdCardModule} from "@angular/material";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    HomeRoutingModule
-  ],
-  declarations: [HomePageComponent]
+    imports: [
+        CommonModule,
+        HomeRoutingModule,
+        MdCardModule
+    ],
+    declarations: [HomePageComponent]
 })
-export class HomeModule { }
+export class HomeModule {
+}

@@ -1,0 +1,19 @@
+.homepage-card {
+    margin: 0 10px;
+}
+.homepage-card md-card-header {
+    font-size: 48px;
+    padding-bottom: 5px;
+}
+
+.homepage-card md-card-content {
+    font-size: 24px;
+    border: 1px solid #7f7f7f;
+    padding: 5px 10px;
+    margin: 5px 5px;
+}
+
+.homepage-card md-card-footer {
+    text-align: center;
+    padding: 3px;
+}

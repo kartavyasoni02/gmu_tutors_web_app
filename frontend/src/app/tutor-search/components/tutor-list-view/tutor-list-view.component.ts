@@ -17,4 +17,7 @@ export class TutorListViewComponent implements OnInit {
   ngOnInit() {
   }
 
+  alertIndividualTutor(tutor: Tutor) {
+      alert(tutor.firstName + ' ' + tutor.lastName + ' : ' + tutor.rating.toFixed(3));
+  }
 }

@@ -5,8 +5,7 @@ import {MdCardModule} from '@angular/material';
 
 @NgModule({
   imports: [
-    CommonModule,
-    MdCardModule
+    CommonModule
   ],
   declarations: [],
   providers: [TutorsService]
