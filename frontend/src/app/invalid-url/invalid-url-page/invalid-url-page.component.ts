@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'gmu-invalid-url-page',
-  templateUrl: './invalid-url-page.component.html',
-  styleUrls: ['./invalid-url-page.component.css']
+    selector: 'gmu-invalid-url-page',
+    templateUrl: './invalid-url-page.component.html',
+    styleUrls: ['./invalid-url-page.component.css']
 })
 export class InvalidUrlPageComponent implements OnInit {
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }

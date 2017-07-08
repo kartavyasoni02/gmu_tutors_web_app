@@ -5,24 +5,24 @@ import {MdListModule} from '@angular/material';
 import {SharedModule} from '../../../shared/shared.module';
 
 describe('TutorListViewComponent', () => {
-  let component: TutorListViewComponent;
-  let fixture: ComponentFixture<TutorListViewComponent>;
+    let component: TutorListViewComponent;
+    let fixture: ComponentFixture<TutorListViewComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [TutorListViewComponent],
-      imports: [SharedModule, MdListModule]
-    })
-      .compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [TutorListViewComponent],
+            imports: [SharedModule, MdListModule]
+        })
+            .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(TutorListViewComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(TutorListViewComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should be created', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should be created', () => {
+        expect(component).toBeTruthy();
+    });
 });

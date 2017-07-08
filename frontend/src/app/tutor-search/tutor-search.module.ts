@@ -8,13 +8,13 @@ import {SharedModule} from '../shared/shared.module';
 import {MdListModule} from '@angular/material';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    TutorSearchRoutingModule,
-    SharedModule,
-    MdListModule
-  ],
-  declarations: [TutorSearchPageComponent, TutorListViewComponent]
+    imports: [
+        CommonModule,
+        TutorSearchRoutingModule,
+        SharedModule,
+        MdListModule
+    ],
+    declarations: [TutorSearchPageComponent, TutorListViewComponent]
 })
 export class TutorSearchModule {
 }

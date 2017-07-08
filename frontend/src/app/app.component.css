@@ -1,26 +1,27 @@
 .menu-toolbar {
-  background: gold;
+    background: gold;
 }
 
 .mobile-menu {
-  display: none;
+    display: none;
 }
 
 .menu-buttons:hover {
-  color: green;
+    color: green;
 }
 
 .menu-buttons {
-  color: darkgreen;
-  margin: 0% 0.25% 0% 0.25%;
+    color: darkgreen;
+    margin: 0% 0.25% 0% 0.25%;
 }
 
 @media only screen and (max-width: 768px) {
-  .mobile-menu {
-    display: block;
-    color: darkgreen;
-  }
-  .menu-buttons {
-    display: none;
-  }
+    .mobile-menu {
+        display: block;
+        color: darkgreen;
+    }
+
+    .menu-buttons {
+        display: none;
+    }
 }

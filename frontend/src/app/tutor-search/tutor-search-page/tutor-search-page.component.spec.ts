@@ -6,24 +6,24 @@ import {SharedModule} from '../../shared/shared.module';
 import {MdListModule} from '@angular/material';
 
 describe('TutorSearchPageComponent', () => {
-  let component: TutorSearchPageComponent;
-  let fixture: ComponentFixture<TutorSearchPageComponent>;
+    let component: TutorSearchPageComponent;
+    let fixture: ComponentFixture<TutorSearchPageComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [TutorSearchPageComponent, TutorListViewComponent],
-      imports: [SharedModule, MdListModule]
-    })
-      .compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [TutorSearchPageComponent, TutorListViewComponent],
+            imports: [SharedModule, MdListModule]
+        })
+            .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(TutorSearchPageComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(TutorSearchPageComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should be created', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should be created', () => {
+        expect(component).toBeTruthy();
+    });
 });
