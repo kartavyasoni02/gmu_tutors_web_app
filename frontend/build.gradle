@@ -15,14 +15,14 @@ node {
     nodeModulesDir = file("${project.projectDir}")
 }
 
-task buildFrontend(type: YarnTask) {
+task buildFrontend(type: NpmTask) {
     args = ['run', 'build']
 }
 buildFrontend.dependsOn(yarn_install)
 
 build.dependsOn(buildFrontend)
 
-task test(type: YarnTask) {
+task test(type: NpmTask) {
     args = ['run', 'test']
 }
 
@@ -35,7 +35,7 @@ task createDockerfile(type: Dockerfile) {
     exposePort 80
 }
 
-task lint(type: YarnTask) {
+task lint(type: NpmTask) {
     args = ['run', 'lint']
 }
 

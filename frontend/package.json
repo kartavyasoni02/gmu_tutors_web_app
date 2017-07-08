@@ -10,7 +10,7 @@
     "build:dev": "ng build",
     "test": "ng test --code-coverage --single-run",
     "test:dev": "ng test -w",
-    "lint": "ng lint --type-check true --format verbose",
+    "lint": "ng lint --type-check --format verbose",
     "lint:dev": "ng lint",
     "e2e": "ng e2e"
   },
