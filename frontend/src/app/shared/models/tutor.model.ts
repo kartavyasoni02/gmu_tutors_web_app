@@ -1,4 +1,4 @@
-import {ZonedDateTime} from "js-joda";
+import {ZonedDateTime} from 'js-joda';
 export interface Tutor {
   firstName: string;
   lastName: string;

@@ -2,6 +2,8 @@ package com.gmu.tutors.transfer.dto;
 
 import com.gmu.tutors.transfer.enums.TutorLocation;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import javax.validation.constraints.NotNull;
 
@@ -66,5 +68,27 @@ public class Location {
     @Override
     public String toString() {
         return description;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Location location = (Location) o;
+
+        return new EqualsBuilder()
+                .append(locationValue, location.locationValue)
+                .append(description, location.description)
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37)
+                .append(locationValue)
+                .append(description)
+                .toHashCode();
     }
 }

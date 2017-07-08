@@ -1,5 +1,9 @@
 package com.gmu.tutors.domain;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -62,5 +66,44 @@ public class JpaTutor {
 
     public void setNumOfRatings(Integer numOfRatings) {
         this.numOfRatings = numOfRatings;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("id", id)
+                .append("firstName", firstName)
+                .append("lastName", lastName)
+                .append("rating", rating)
+                .append("numOfRatings", numOfRatings)
+                .toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if (o == null || getClass() != o.getClass()) return false;
+
+        JpaTutor tutor = (JpaTutor) o;
+
+        return new EqualsBuilder()
+                .append(id, tutor.id)
+                .append(firstName, tutor.firstName)
+                .append(lastName, tutor.lastName)
+                .append(rating, tutor.rating)
+                .append(numOfRatings, tutor.numOfRatings)
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37)
+                .append(id)
+                .append(firstName)
+                .append(lastName)
+                .append(rating)
+                .append(numOfRatings)
+                .toHashCode();
     }
 }

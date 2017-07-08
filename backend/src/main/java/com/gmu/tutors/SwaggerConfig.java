@@ -32,7 +32,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfo(
                 "GMU Tutors Application",
-                "Web App project to connect students to tutors",
+                "Web App project to connect students to their peer tutors",
                 "0.0.1",
                 "",
                 new Contact("Andrew Huynh", "https://github.com/SaxyPandaBear", "ahuynh11@gmu.edu"),

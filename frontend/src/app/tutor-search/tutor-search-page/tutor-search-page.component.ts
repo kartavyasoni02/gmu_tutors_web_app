@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Tutor} from "../../shared/models/tutor.model";
-import {ZonedDateTime, ZoneId} from "js-joda";
+import {Tutor} from 'app/shared/models/tutor.model';
+import {ZonedDateTime, ZoneId} from 'js-joda';
 
 @Component({
   selector: 'gmu-tutor-search-page',
