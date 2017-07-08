@@ -43,4 +43,4 @@ task cleanFrontendFiles {
     delete 'dist', 'build'
 }
 clean.dependsOn cleanFrontendFiles
-check.dependsOn lint
+//check.dependsOn lint
