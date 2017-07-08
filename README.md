@@ -33,7 +33,11 @@ Project Structure and Setup
 ============================
 
 #### Setup
-- Download/Setup Docker and Docker Compose
+- Install Java 8+ SDK
+- Install [Gradle](https://gradle.org/install/)
+- Install [Node.js](https://nodejs.org/en/)
+- Install [Docker](https://docs.docker.com/engine/installation/) and [Docker Compose](https://docs.docker.com/compose/install/)
+- Install [Yarn](https://yarnpkg.com/lang/en/docs/install/) (optional)
 - Set environment variables
   - note: NODE_SETUP_REQUIRED value depends on whether or not you have nodejs and/or yarn set up on your host machine
   
