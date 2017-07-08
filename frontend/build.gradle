@@ -8,7 +8,7 @@ plugins {
 
 node {
     version = '6.11.0'
-    yarnVersion = '0.24.6'
+    yarnVersion = '0.27.5'
     download = Boolean.parseBoolean(System.getenv('NODE_SETUP_REQUIRED'))
     workDir = file("${project.buildDir}/nodejs")
     yarnWorkDir = file("${project.buildDir}/yarn")
@@ -26,6 +26,11 @@ task test(type: NpmTask) {
     args = ['run', 'test']
 }
 
+task lint(type: NpmTask) {
+    args = ['run', 'lint']
+}
+check.dependsOn lint
+
 import com.bmuschko.gradle.docker.tasks.image.Dockerfile
 task createDockerfile(type: Dockerfile) {
     dependsOn buildFrontend
@@ -35,12 +40,7 @@ task createDockerfile(type: Dockerfile) {
     exposePort 80
 }
 
-task lint(type: NpmTask) {
-    args = ['run', 'lint']
-}
-
 task cleanFrontendFiles {
     delete 'dist', 'build'
 }
 clean.dependsOn cleanFrontendFiles
-//check.dependsOn lint
