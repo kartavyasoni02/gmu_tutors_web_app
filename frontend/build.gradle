@@ -16,7 +16,7 @@ node {
 }
 
 task buildFrontend(type: YarnTask) {
-    args = ['run', 'build', '--output-path', './build']
+    args = ['run', 'build']
 }
 buildFrontend.dependsOn(yarn_install)
 
@@ -35,8 +35,12 @@ task createDockerfile(type: Dockerfile) {
     exposePort 80
 }
 
+task lint(type: YarnTask) {
+    args = ['run', 'lint']
+}
+
 task cleanFrontendFiles {
     delete 'dist', 'build'
 }
 clean.dependsOn cleanFrontendFiles
-
+check.dependsOn lint

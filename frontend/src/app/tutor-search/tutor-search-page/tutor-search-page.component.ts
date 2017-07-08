@@ -10,7 +10,7 @@ import {ZonedDateTime, ZoneId} from 'js-joda';
 export class TutorSearchPageComponent implements OnInit {
 
   // end result should use an Observable
-  //public tutors$: Observable<Tutor[]>;
+  // public tutors$: Observable<Tutor[]>;
 
   // for now, mock it with random data generation in frontend
   // todo: move random generation to backend and hook up REST endpoints
@@ -37,8 +37,8 @@ export class TutorSearchPageComponent implements OnInit {
   }
 
   private generateDummyTutorList(): Tutor[] {
-    let resultList = [];
-    let range: number = Math.floor(Math.random() * 50) + 50;
+    const resultList = [];
+    const range: number = Math.floor(Math.random() * 50) + 50;
     for (let i = 0; i < range; i++) {
       resultList.push(this.generateRandomTutor())
     }
@@ -56,7 +56,7 @@ export class TutorSearchPageComponent implements OnInit {
   }
 
   private getRandomName(names: string[]) {
-    let index: number = Math.floor(Math.random() * names.length);
+    const index: number = Math.floor(Math.random() * names.length);
     return names[index];
   }
 
@@ -65,10 +65,10 @@ export class TutorSearchPageComponent implements OnInit {
   }
 
   private getRandomDate() {
-    let yearDecider: number = Math.random();
-    let year: number = yearDecider < 0.33 ? 2017 : yearDecider < 0.66 ? 2016 : 2015;
-    let month: number = Math.floor(Math.random() * 10) + 1;
-    let day: number = Math.floor(Math.random() * 25) + 1;
+    const yearDecider: number = Math.random();
+    const year: number = yearDecider < 0.33 ? 2017 : yearDecider < 0.66 ? 2016 : 2015;
+    const month: number = Math.floor(Math.random() * 10) + 1;
+    const day: number = Math.floor(Math.random() * 25) + 1;
     return ZonedDateTime.of(year, month, day, 1, 1, 1, 1, ZoneId.SYSTEM);
   }
 }
