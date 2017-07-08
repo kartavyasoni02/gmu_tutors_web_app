@@ -1,21 +1,22 @@
 <md-toolbar class="menu-toolbar">
 
-  <!--mobile version of menu-->
-  <button md-button [mdMenuTriggerFor]="menu" class="mobile-menu">
-    <md-icon class="mobile-menu">menu</md-icon>
-  </button>
-  <md-menu #menu="mdMenu">
-    <button md-button class="mobile-menu" routerLink="home">Home</button>
-    <button md-button class="mobile-menu" routerLink="contact">Contact</button>
-    <button md-button class="mobile-menu" routerLink="tutors">Find Tutors</button>
-  </md-menu>
-  <!--mobile version of menu-->
+    <!--mobile version of menu-->
+    <button md-button [mdMenuTriggerFor]="menu" class="mobile-menu">
+        <md-icon class="mobile-menu">menu</md-icon>
+    </button>
+    <md-menu #menu="mdMenu">
+        <button md-button class="mobile-menu" routerLink="home">Home</button>
+        <button md-button class="mobile-menu" routerLink="contact">Contact</button>
+        <button md-button class="mobile-menu" routerLink="tutors">Find Tutors</button>
+    </md-menu>
+    <!--mobile version of menu-->
 
-  <!--desktop version of menu-->
-  <button md-button class="menu-buttons" routerLink="home">Home</button>
-  <button md-button class="menu-buttons" routerLink="contact">Contact</button>
-  <button md-button class="menu-buttons" routerLink="tutors">Find Tutors</button>
-  <!--desktop version of menu-->
+    <!--desktop version of menu-->
+    <a routerLink="home" class="menu-buttons"><img src="../assets/logos/gmu-logo.png" style="width: 40px; height: 40px;"></a>
+    <button md-button class="menu-buttons" routerLink="home">Home</button>
+    <button md-button class="menu-buttons" routerLink="contact">Contact</button>
+    <button md-button class="menu-buttons" routerLink="tutors">Find Tutors</button>
+    <!--desktop version of menu-->
 </md-toolbar>
 
 <router-outlet></router-outlet>
