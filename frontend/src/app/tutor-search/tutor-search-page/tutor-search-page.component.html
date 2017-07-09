@@ -1,5 +1,6 @@
-<md-card>
-    <md-card-header>There are currently <code style="border: 1px solid black;">{{tutors.length}}</code> tutors available.</md-card-header>
-    <gmu-tutor-list-view [tutors]="tutors"></gmu-tutor-list-view>
-    <md-card-footer><button md-button (click)="viewTutorForm()">Sign up as a tutor!</button></md-card-footer>
+<md-card class="search-header">
+    There are currently {{tutors.length}} tutors available.
 </md-card>
+<gmu-tutor-list-view [tutors]="tutors"></gmu-tutor-list-view>
+<button md-button (click)="viewTutorForm()">Sign up as a tutor!</button>
+

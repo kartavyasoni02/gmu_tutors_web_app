@@ -15,7 +15,7 @@
     margin: 0% 0.25% 0% 0.25%;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 512px) {
     .mobile-menu {
         display: block;
         color: darkgreen;
