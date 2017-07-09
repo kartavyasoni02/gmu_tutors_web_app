@@ -3,7 +3,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {TutorSearchPageComponent} from './tutor-search-page.component';
 import {TutorListViewComponent} from '../components/tutor-list-view/tutor-list-view.component';
 import {SharedModule} from '../../shared/shared.module';
-import {MdListModule} from '@angular/material';
+import {MdButtonModule, MdCardModule, MdListModule} from '@angular/material';
 
 describe('TutorSearchPageComponent', () => {
     let component: TutorSearchPageComponent;
@@ -12,7 +12,12 @@ describe('TutorSearchPageComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [TutorSearchPageComponent, TutorListViewComponent],
-            imports: [SharedModule, MdListModule]
+            imports: [
+                SharedModule,
+                MdListModule,
+                MdCardModule,
+                MdButtonModule
+            ]
         })
             .compileComponents();
     }));

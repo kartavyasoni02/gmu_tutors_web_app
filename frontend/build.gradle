@@ -41,6 +41,6 @@ task createDockerfile(type: Dockerfile) {
 }
 
 task cleanFrontendFiles {
-    delete 'dist', 'build'
+    delete 'dist', 'build', 'coverage'
 }
 clean.dependsOn cleanFrontendFiles

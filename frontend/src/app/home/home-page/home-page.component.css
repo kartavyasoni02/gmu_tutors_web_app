@@ -1,20 +1,31 @@
 .homepage-card {
-    margin: 0 10px;
+    margin: 10px 0;
 }
 
 .homepage-card md-card-header {
-    font-size: 48px;
+    font-size: 32px;
     padding-bottom: 5px;
 }
 
 .homepage-card md-card-content {
-    font-size: 24px;
-    border: 1px solid #7f7f7f;
+    font-size: 20px;
     padding: 5px 10px;
     margin: 5px 5px;
+    border: 1px solid #7f7f7f;
+}
+
+.homepage-card md-card-content > h3 {
+    font-size: 28px;
+    font-weight: inherit;
+    font-family: inherit;
 }
 
 .homepage-card md-card-footer {
     text-align: center;
     padding: 3px;
+}
+
+.empty-space {
+    height: 20px;
+    width: 100%;
 }

@@ -36,6 +36,10 @@ export class TutorSearchPageComponent implements OnInit {
     ngOnInit() {
     }
 
+    viewTutorForm() {
+        console.log('Show tutor form');
+    }
+
     private generateDummyTutorList(): Tutor[] {
         const resultList = [];
         const range: number = Math.floor(Math.random() * 50) + 50;

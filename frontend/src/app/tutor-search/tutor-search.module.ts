@@ -5,14 +5,16 @@ import {TutorSearchRoutingModule} from './tutor-search-routing.module';
 import {TutorSearchPageComponent} from './tutor-search-page/tutor-search-page.component';
 import {TutorListViewComponent} from './components/tutor-list-view/tutor-list-view.component';
 import {SharedModule} from '../shared/shared.module';
-import {MdListModule} from '@angular/material';
+import {MdButtonModule, MdCardModule, MdListModule} from '@angular/material';
 
 @NgModule({
     imports: [
         CommonModule,
         TutorSearchRoutingModule,
         SharedModule,
-        MdListModule
+        MdListModule,
+        MdCardModule,
+        MdButtonModule
     ],
     declarations: [TutorSearchPageComponent, TutorListViewComponent]
 })
