@@ -2,6 +2,7 @@ package com.gmu.tutors.controllers;
 
 
 import com.gmu.tutors.services.TutorService;
+import com.gmu.tutors.transfer.dto.Tutor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -12,6 +13,9 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.web.config.EnableSpringDataWebSupport;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+
+import java.util.Arrays;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest
@@ -28,5 +32,14 @@ public class TutorControllerTest {
     @Test
     public void foo() {
         assert true;
+    }
+
+    @Test
+    public void allEndpointIsOperational() {
+        Tutor t1 = new Tutor();
+        Tutor t2 = new Tutor();
+        Tutor t3 = new Tutor();
+        List<Tutor>  tutors = Arrays.asList(t1, t2, t3);
+        
     }
 }
