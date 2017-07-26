@@ -36,7 +36,7 @@ gradle.properties
 
 /.gradle
 
-/out
+**/out
 
 **/coverage
 

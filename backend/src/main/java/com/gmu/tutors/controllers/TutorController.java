@@ -10,7 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.List;
 
 @RestController
@@ -22,25 +26,38 @@ public class TutorController {
     private TutorService tutorService;
 
     private static final Logger log = LoggerFactory.getLogger(TutorController.class);
+    private final DateTimeFormatter format = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT);
 
     @GetMapping("/all")
     @ApiOperation(value="Fetches all of the tutors currently in the system.")
-    public List<Tutor> fetchAllTutors() throws IOException{
-        log.info("GET request: /api/tutors/all");
+    public List<Tutor> fetchAllTutors(HttpServletRequest servletRequest) throws IOException{
+        log.info("\n\t{} Request at {}\n\tURL: {}\n\tPort: {}",
+                servletRequest.getMethod(),
+                ZonedDateTime.now().format(format),
+                servletRequest.getRequestURL(),
+                servletRequest.getServerPort());
         return tutorService.getDummyTutorList();
     }
 
     @PutMapping("/insert")
-    @ApiOperation(value="Persists a new tutor from the frotn end into the database")
-    public String addTutor(@RequestBody Tutor tutor) throws IOException{
-        log.info("PUT request: /api/tutors/insert with value: {}", tutor);
+    @ApiOperation(value="Persists a new tutor from the front end into the database")
+    public String addTutor(@RequestBody Tutor tutor, HttpServletRequest servletRequest) throws IOException{
+        log.info("\n\t{} Request at {}\n\tURL: {}\n\tPort: {}",
+                servletRequest.getMethod(),
+                ZonedDateTime.now().format(format),
+                servletRequest.getRequestURL(),
+                servletRequest.getServerPort());
         return tutorService.insertTutor(tutor);
     }
 
     @PatchMapping("/rating/{id}")
     @ApiOperation(value = "Adds a rating to an existing Tutor")
-    public String updateRating(@RequestBody Double rating, @PathVariable Long id) throws IOException{
-        log.info("PATCH request: /api/tutors/rating/{id} with value: {}", id);
+    public String updateRating(@RequestBody Double rating, @PathVariable Long id, HttpServletRequest servletRequest) throws IOException{
+        log.info("\n\t{} Request at {}\n\tURL: {}\n\tPort: {}",
+                servletRequest.getMethod(),
+                ZonedDateTime.now().format(format),
+                servletRequest.getRequestURL(),
+                servletRequest.getServerPort());
         return tutorService.updateRating(id, rating);
     }
 }
