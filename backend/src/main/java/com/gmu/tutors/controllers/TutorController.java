@@ -50,7 +50,7 @@ public class TutorController {
         return tutorService.insertTutor(tutor);
     }
 
-    @PatchMapping("/rating/{id}")
+    @PostMapping("/rating/{id}")
     @ApiOperation(value = "Adds a rating to an existing Tutor")
     public String updateRating(@RequestBody Double rating, @PathVariable Long id, HttpServletRequest servletRequest) throws IOException{
         log.info("\n\t{} Request at {}\n\tURL: {}\n\tPort: {}",

@@ -14,6 +14,7 @@ import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Transactional
 @Service
@@ -36,6 +37,10 @@ public class TutorService {
         tutors.add(dummy);
 
         return tutors;
+    }
+
+    public List<Tutor> fetchAllTutors() {
+        return tutorRepository.findAll().stream().map(Tutor::fromJPA).collect(Collectors.toList());
     }
 
     public String insertTutor(Tutor tutor){
@@ -61,7 +66,18 @@ public class TutorService {
         return String.format("%s, %s has an overall rating of %f", tutor.getLastName(), tutor.getFirstName(), currentRating);
     }
 
-    private double calculateNewAverageRating(double oldRating, int numberOfRatings, double newRating) {
-        return ((oldRating * numberOfRatings) + newRating) / (numberOfRatings + 1);
+    double calculateNewAverageRating(double oldRating, int numberOfRatings, double newRating) {
+        double updatedSum = calculateOldSumOfRatings(oldRating, numberOfRatings) + newRating;
+        numberOfRatings++;
+
+        return calculateAverage(updatedSum, numberOfRatings);
+    }
+
+    private double calculateAverage(double sum, int numberOfRatings) {
+        return sum / numberOfRatings;
+    }
+
+    private double calculateOldSumOfRatings(double averageRating, int numberOfRatings) {
+        return averageRating * numberOfRatings;
     }
 }

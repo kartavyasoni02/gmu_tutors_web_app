@@ -19,6 +19,10 @@ public class JpaTutor {
     private Double rating;
     private Integer numOfRatings; // we aren't keeping track of all of the ratings, so we need to keep track of how many
 
+    public static JpaTutor instance() {
+        return new JpaTutor();
+    }
+
     protected JpaTutor() {}
 
     public JpaTutor(String firstName, String lastName, Double rating, Integer numOfRatings) {

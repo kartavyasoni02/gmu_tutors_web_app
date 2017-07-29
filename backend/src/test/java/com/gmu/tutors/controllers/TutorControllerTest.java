@@ -65,23 +65,7 @@ public class TutorControllerTest {
                 .andExpect(jsonPath("$", is(equalTo(message))));
     }
 
-    @Test
-    public void updateTutorEndpointIsOperational() throws Exception {
-        Double rating = 5.0;
-        Long id = 1L;
-        String message = "This is a message";
-
-        when(tutorService.updateRating(id, rating)).thenReturn(message);
-
-        this.mvc
-                .perform(patch("rating/{id}", id)
-                        .content(asJsonString(rating))
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$", is(equalTo(message))));
-    }
-
-    public static String asJsonString(final Object obj) {
+    private static String asJsonString(final Object obj) {
         try {
             final ObjectMapper mapper = new ObjectMapper();
             return mapper.writeValueAsString(obj);

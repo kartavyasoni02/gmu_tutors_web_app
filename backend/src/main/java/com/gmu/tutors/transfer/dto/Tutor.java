@@ -1,5 +1,6 @@
 package com.gmu.tutors.transfer.dto;
 
+import com.gmu.tutors.domain.JpaTutor;
 import com.gmu.tutors.transfer.enums.TutorSubject;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -96,6 +97,24 @@ public class Tutor {
 
     public void setAvailable(boolean available) {
         this.available = available;
+    }
+
+    public static Tutor fromJPA(JpaTutor jpaTutor) {
+        Tutor tutor = new Tutor();
+        tutor.setFirstName(jpaTutor.getFirstName());
+        tutor.setLastName(jpaTutor.getLastName());
+        tutor.setRating(jpaTutor.getRating());
+
+        return tutor;
+    }
+
+    public static JpaTutor toJPA(Tutor tutor) {
+        JpaTutor jpaTutor = JpaTutor.instance();
+        jpaTutor.setFirstName(tutor.getFirstName());
+        jpaTutor.setLastName(tutor.getLastName());
+        jpaTutor.setRating(tutor.getRating());
+
+        return jpaTutor;
     }
 
     @Override
